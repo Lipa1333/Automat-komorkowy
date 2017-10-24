@@ -1,6 +1,8 @@
 #pragma once
 
 #include <vector>
+#include "Pole.h"
+
 
 class Komorka
 {
@@ -12,17 +14,33 @@ public:
 	// zdefiniowane dzialanie
 
 	bool czyAgent;
-	int iloscWartosci;
 
-	std::vector<float> wartosci;   // wartosci o ktorych byla mowa
-	
-	short przyszlyStan;
-	//talica stanow - dostarczana ze skryptem lub predefiniowana
+	static bool czyPrzeplywajace;
+
+	static int iloscWartosci;
+
+	static class Pole * pole;
+
+	std::vector<float> wartosci;// wartosci o ktorych byla mowa
+
+	std::vector<float> przyszleWartosci;// wartosci o ktorych byla mowa
+
+	int x;
+	int y;
 
 
-	void(*dzialanie)(); // tymczasowe, wskaznik na funkcje ktora bedzie zapisana w skrypcie
+	std::vector<Komorka*> sasiedzi;
+
+	//brak interpretacji stanow- kazda komorka caly czas zyje
+
+	static std::vector<float>(*dzialanie)(std::vector<float> v, std::vector<std::vector<float>> n); // tymczasowe, wskaznik na funkcje ktora bedzie zapisana w skrypci
+
+
 
 	Komorka();
+	Komorka(int y, int x);
 	~Komorka();
+	void ustalSasiadow();
+	Komorka operator=(const Komorka & v); //deprecated
 };
 

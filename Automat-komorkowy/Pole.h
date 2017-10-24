@@ -3,13 +3,8 @@
 #include "Komorka.h"
 class Pole
 {
-
-	
-	
-	//s¹siedzctwo do wyboru
-	// rozszerzalna
 	// warunki brzegowe - przeplywajace lub krancowe
-	
+
 	//PRYPOMINAM ZE JEST TO IV CWIARTKA UKLADU WSPOLRZEDNYCH
 
 	//ewolucja = tura
@@ -18,14 +13,17 @@ class Pole
 public:
 	int rozmiar;
 	bool czyMoorea;
-	std::vector<std::vector<Komorka>> plansza; // UTILITY. to trzeba bedzie zapisac do pliku
-	std::vector<Komorka *> listaAktywnychKomorek; // to rowniez
-	Pole(int rozmiar,bool czyMoorea);
+	bool czyPrzeplywajace;
+	std::vector<std::vector<class Komorka>> plansza; // UTILITY. to trzeba bedzie zapisac do pliku
+
+	Pole(int rozmiar, bool czyMoorea, int iloscWartosci, bool czyPrzeplywajace);
 	~Pole();
 
-	void SprawdzBrzegi();
-	void WykonajTure();
+	void wykonajTure();
+	void wprowadzKomorke(int x, int y, std::vector<float> wartosci);
 
+	void wykonajTurePrzejsciePierwsze();
+	void wykonajTurePrzejscieDrugie();
 
 };
 
