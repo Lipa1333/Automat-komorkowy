@@ -39,6 +39,7 @@ public:
     QLabel *XCoordinateLabel;
     QLabel *YCoordinateLabel;
     QPlainTextEdit *YCoordinateText;
+    QPushButton *NewButton;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -54,13 +55,13 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         StartButton = new QPushButton(centralWidget);
         StartButton->setObjectName(QStringLiteral("StartButton"));
-        StartButton->setGeometry(QRect(10, 10, 75, 23));
+        StartButton->setGeometry(QRect(10, 40, 75, 23));
         StepButton = new QPushButton(centralWidget);
         StepButton->setObjectName(QStringLiteral("StepButton"));
-        StepButton->setGeometry(QRect(10, 40, 75, 23));
+        StepButton->setGeometry(QRect(10, 70, 75, 23));
         StopButton = new QPushButton(centralWidget);
         StopButton->setObjectName(QStringLiteral("StopButton"));
-        StopButton->setGeometry(QRect(10, 70, 75, 23));
+        StopButton->setGeometry(QRect(10, 100, 75, 23));
         LoadButton = new QPushButton(centralWidget);
         LoadButton->setObjectName(QStringLiteral("LoadButton"));
         LoadButton->setGeometry(QRect(10, 320, 75, 23));
@@ -84,6 +85,9 @@ public:
         YCoordinateText->setObjectName(QStringLiteral("YCoordinateText"));
         YCoordinateText->setGeometry(QRect(10, 220, 71, 31));
         YCoordinateText->setCursorWidth(0);
+        NewButton = new QPushButton(centralWidget);
+        NewButton->setObjectName(QStringLiteral("NewButton"));
+        NewButton->setGeometry(QRect(10, 10, 75, 23));
         GUIClass->setCentralWidget(centralWidget);
         mainToolBar = new QToolBar(GUIClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -110,6 +114,7 @@ public:
         XCoordinateLabel->setText(QApplication::translate("GUIClass", "X coordinate", Q_NULLPTR));
         YCoordinateLabel->setText(QApplication::translate("GUIClass", "Y coordinate", Q_NULLPTR));
         YCoordinateText->setPlainText(QApplication::translate("GUIClass", "0", Q_NULLPTR));
+        NewButton->setText(QApplication::translate("GUIClass", "New", Q_NULLPTR));
     } // retranslateUi
 
 };

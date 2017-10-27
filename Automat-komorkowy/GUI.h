@@ -3,6 +3,8 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_GUI.h"
 #include "Worker.h"
+#include "Pole.h"
+#include "Generate.h"
 
 class GUI : public QMainWindow
 {
@@ -18,6 +20,9 @@ public:
 
 	QThread * thread;
 	Worker * worker;
+	Pole * Field;
+
+	Generate * GenerateWindow;
 
 private slots:
 
@@ -27,6 +32,8 @@ private slots:
 	void Load();
 	void Step();
 	void Redraw();
+	void NewField();
+	void FieldFinished();
 
 private:
 	Ui::GUIClass ui;

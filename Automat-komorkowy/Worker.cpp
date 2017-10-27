@@ -7,11 +7,10 @@ Worker::Worker()
 	Window = NULL;
 }
 
-Worker::Worker(bool * input, int * inputdata, QMainWindow * app)
+Worker::Worker(bool * input, QMainWindow * app)
 {
 	Simulate = input;
 	Window = app;
-	data = inputdata;
 }
 
 Worker::~Worker()
@@ -21,12 +20,7 @@ Worker::~Worker()
 
 void Worker::process()
 {
-	for (int i = 0; i < 5; i++)
-	{
-		if(*Simulate) *data += 10;
 
 		emit finished();
-		Sleep(uint(500));
-	}
 
 }
