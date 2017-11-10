@@ -20,7 +20,6 @@
 #include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -39,14 +38,16 @@ public:
     QLabel *XCoordinateLabel;
     QLabel *YCoordinateLabel;
     QPlainTextEdit *YCoordinateText;
-    QToolBar *mainToolBar;
+    QPushButton *NewButton;
+    QPushButton *ShowButton;
+    QPushButton *EditButton;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *GUIClass)
     {
         if (GUIClass->objectName().isEmpty())
             GUIClass->setObjectName(QStringLiteral("GUIClass"));
-        GUIClass->resize(600, 400);
+        GUIClass->resize(600, 433);
         GUIClass->setAutoFillBackground(false);
         GUIClass->setDocumentMode(false);
         GUIClass->setTabShape(QTabWidget::Rounded);
@@ -54,40 +55,46 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         StartButton = new QPushButton(centralWidget);
         StartButton->setObjectName(QStringLiteral("StartButton"));
-        StartButton->setGeometry(QRect(10, 10, 75, 23));
+        StartButton->setGeometry(QRect(10, 40, 75, 23));
         StepButton = new QPushButton(centralWidget);
         StepButton->setObjectName(QStringLiteral("StepButton"));
-        StepButton->setGeometry(QRect(10, 40, 75, 23));
+        StepButton->setGeometry(QRect(10, 70, 75, 23));
         StopButton = new QPushButton(centralWidget);
         StopButton->setObjectName(QStringLiteral("StopButton"));
-        StopButton->setGeometry(QRect(10, 70, 75, 23));
+        StopButton->setGeometry(QRect(10, 100, 75, 23));
         LoadButton = new QPushButton(centralWidget);
         LoadButton->setObjectName(QStringLiteral("LoadButton"));
-        LoadButton->setGeometry(QRect(10, 320, 75, 23));
+        LoadButton->setGeometry(QRect(10, 350, 75, 23));
         SaveButton = new QPushButton(centralWidget);
         SaveButton->setObjectName(QStringLiteral("SaveButton"));
-        SaveButton->setGeometry(QRect(10, 290, 75, 23));
+        SaveButton->setGeometry(QRect(10, 320, 75, 23));
         StepSaveButton = new QCheckBox(centralWidget);
         StepSaveButton->setObjectName(QStringLiteral("StepSaveButton"));
-        StepSaveButton->setGeometry(QRect(10, 260, 75, 23));
+        StepSaveButton->setGeometry(QRect(10, 290, 75, 23));
         XCoordinateText = new QPlainTextEdit(centralWidget);
         XCoordinateText->setObjectName(QStringLiteral("XCoordinateText"));
-        XCoordinateText->setGeometry(QRect(10, 160, 71, 31));
+        XCoordinateText->setGeometry(QRect(10, 200, 71, 31));
         XCoordinateText->setCursorWidth(0);
         XCoordinateLabel = new QLabel(centralWidget);
         XCoordinateLabel->setObjectName(QStringLiteral("XCoordinateLabel"));
-        XCoordinateLabel->setGeometry(QRect(10, 130, 61, 20));
+        XCoordinateLabel->setGeometry(QRect(10, 170, 61, 20));
         YCoordinateLabel = new QLabel(centralWidget);
         YCoordinateLabel->setObjectName(QStringLiteral("YCoordinateLabel"));
-        YCoordinateLabel->setGeometry(QRect(10, 190, 61, 20));
+        YCoordinateLabel->setGeometry(QRect(10, 230, 61, 20));
         YCoordinateText = new QPlainTextEdit(centralWidget);
         YCoordinateText->setObjectName(QStringLiteral("YCoordinateText"));
-        YCoordinateText->setGeometry(QRect(10, 220, 71, 31));
+        YCoordinateText->setGeometry(QRect(10, 260, 71, 31));
         YCoordinateText->setCursorWidth(0);
+        NewButton = new QPushButton(centralWidget);
+        NewButton->setObjectName(QStringLiteral("NewButton"));
+        NewButton->setGeometry(QRect(10, 10, 75, 23));
+        ShowButton = new QPushButton(centralWidget);
+        ShowButton->setObjectName(QStringLiteral("ShowButton"));
+        ShowButton->setGeometry(QRect(10, 150, 75, 23));
+        EditButton = new QPushButton(centralWidget);
+        EditButton->setObjectName(QStringLiteral("EditButton"));
+        EditButton->setGeometry(QRect(10, 380, 75, 23));
         GUIClass->setCentralWidget(centralWidget);
-        mainToolBar = new QToolBar(GUIClass);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        GUIClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(GUIClass);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         GUIClass->setStatusBar(statusBar);
@@ -110,6 +117,9 @@ public:
         XCoordinateLabel->setText(QApplication::translate("GUIClass", "X coordinate", Q_NULLPTR));
         YCoordinateLabel->setText(QApplication::translate("GUIClass", "Y coordinate", Q_NULLPTR));
         YCoordinateText->setPlainText(QApplication::translate("GUIClass", "0", Q_NULLPTR));
+        NewButton->setText(QApplication::translate("GUIClass", "New", Q_NULLPTR));
+        ShowButton->setText(QApplication::translate("GUIClass", "Show", Q_NULLPTR));
+        EditButton->setText(QApplication::translate("GUIClass", "Edit", Q_NULLPTR));
     } // retranslateUi
 
 };

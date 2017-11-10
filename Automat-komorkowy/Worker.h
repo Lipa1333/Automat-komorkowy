@@ -1,18 +1,22 @@
 #pragma once
 #include <QtWidgets/QMainWindow>
+#include "Pole.h"
 
 class Worker : public QObject {
 	Q_OBJECT
 public:
 	Worker();
-	Worker(bool * input, int * inputdata, QMainWindow * app);
+	Worker(bool * input, bool * step, bool * ready, QMainWindow * app);
 	~Worker();
 	bool * Simulate;
+	bool * Step;
+	bool * Ready;
 	QMainWindow * Window;
-	int * data;
+	Pole * Field;
 
-	public slots:
+public slots:
 	void process();
+
 signals:
 	void finished();
 	void error(QString err);
