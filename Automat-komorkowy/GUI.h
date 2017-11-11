@@ -24,7 +24,7 @@ public:
 
 	QThread * thread;
 	Worker * worker;
-	Pole * Field;
+	Pole * Field = NULL;
 
 	Generate * GenerateWindow;
 	Editor * EditorWindow;
