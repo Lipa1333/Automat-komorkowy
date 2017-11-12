@@ -1,0 +1,35 @@
+﻿Build started 2017-11-01 18:11:20.
+     1>Project "C:\Users\Tomek\Desktop\projekt grupowy\build\Automat-komorkowy.vcxproj" on node 2 (Build target(s)).
+     1>PreBuildEvent:
+         setlocal
+         cd "C:\Users\Tomek\Desktop\projekt grupowy\build"
+         if %errorlevel% neq 0 goto :cmEnd
+         C:
+         if %errorlevel% neq 0 goto :cmEnd
+         "C:\Program Files\CMake\bin\cmake.exe" -E cmake_autogen "C:/Users/Tomek/Desktop/projekt grupowy/build/CMakeFiles/Automat-komorkowy_autogen.dir" Debug
+         if %errorlevel% neq 0 goto :cmEnd
+         :cmEnd
+         endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+         :cmErrorLevel
+         exit /b %1
+         :cmDone
+         if %errorlevel% neq 0 goto :VCEnd
+         :VCEnd
+       Link:
+         Automat-komorkowy.vcxproj -> C:\Users\Tomek\Desktop\projekt grupowy\build\Debug\Automat-komorkowy.exe
+       PostBuildEvent:
+         setlocal
+         "C:\Program Files\CMake\bin\cmake.exe" -E copy_directory "C:/Users/Tomek/Desktop/projekt grupowy/libs" "C:/Users/Tomek/Desktop/projekt grupowy/build/Debug"
+         if %errorlevel% neq 0 goto :cmEnd
+         :cmEnd
+         endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+         :cmErrorLevel
+         exit /b %1
+         :cmDone
+         if %errorlevel% neq 0 goto :VCEnd
+         :VCEnd
+     1>Done Building Project "C:\Users\Tomek\Desktop\projekt grupowy\build\Automat-komorkowy.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:17.91

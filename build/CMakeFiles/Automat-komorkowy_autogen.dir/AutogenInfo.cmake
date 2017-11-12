@@ -1,0 +1,35 @@
+# Directories and files
+set(AM_CMAKE_BINARY_DIR "C:/Users/Tomek/Desktop/projekt grupowy/build/")
+set(AM_CMAKE_SOURCE_DIR "C:/Users/Tomek/Desktop/projekt grupowy/")
+set(AM_CMAKE_CURRENT_SOURCE_DIR "C:/Users/Tomek/Desktop/projekt grupowy/")
+set(AM_CMAKE_CURRENT_BINARY_DIR "C:/Users/Tomek/Desktop/projekt grupowy/build/")
+set(AM_CMAKE_INCLUDE_DIRECTORIES_PROJECT_BEFORE "")
+set(AM_BUILD_DIR "C:/Users/Tomek/Desktop/projekt grupowy/build/Automat-komorkowy_autogen")
+set(AM_SOURCES "C:/Users/Tomek/Desktop/projekt grupowy/main.cpp;C:/Users/Tomek/Desktop/projekt grupowy/GUI.cpp;C:/Users/Tomek/Desktop/projekt grupowy/qrc_GUI.cpp;C:/Users/Tomek/Desktop/projekt grupowy/Komorka.cpp;C:/Users/Tomek/Desktop/projekt grupowy/Pole.cpp;C:/Users/Tomek/Desktop/projekt grupowy/Worker.cpp")
+set(AM_HEADERS "C:/Users/Tomek/Desktop/projekt grupowy/GUI.h;C:/Users/Tomek/Desktop/projekt grupowy/ui_GUI.h;C:/Users/Tomek/Desktop/projekt grupowy/Komorka.h;C:/Users/Tomek/Desktop/projekt grupowy/Pole.h;C:/Users/Tomek/Desktop/projekt grupowy/Worker.h")
+# Qt environment
+set(AM_QT_VERSION_MAJOR "5")
+set(AM_QT_MOC_EXECUTABLE "C:/Qt/5.3/msvc2013_64/bin/moc.exe")
+set(AM_QT_UIC_EXECUTABLE )
+set(AM_QT_RCC_EXECUTABLE )
+# MOC settings
+set(AM_MOC_SKIP "")
+set(AM_MOC_DEFINITIONS "QT_CORE_LIB;QT_GUI_LIB;QT_NO_DEBUG;QT_WIDGETS_LIB")
+set(AM_MOC_INCLUDES "C:/Users/Tomek/Desktop/projekt grupowy/build;C:/Users/Tomek/Desktop/projekt grupowy;C:/Users/Tomek/Desktop/projekt grupowy/build/Automat-komorkowy_autogen/include;C:/Qt/5.3/msvc2013_64/include;C:/Qt/5.3/msvc2013_64/include/QtWidgets;C:/Qt/5.3/msvc2013_64/include/QtGui;C:/Qt/5.3/msvc2013_64/include/QtANGLE;C:/Qt/5.3/msvc2013_64/include/QtCore;C:/Qt/5.3/msvc2013_64/mkspecs/win32-msvc2013")
+set(AM_MOC_OPTIONS "")
+set(AM_MOC_RELAXED_MODE "FALSE")
+set(AM_MOC_DEPEND_FILTERS "")
+set(AM_MOC_PREDEFS_CMD )
+# UIC settings
+set(AM_UIC_SKIP )
+set(AM_UIC_TARGET_OPTIONS )
+set(AM_UIC_OPTIONS_FILES )
+set(AM_UIC_OPTIONS_OPTIONS )
+set(AM_UIC_SEARCH_PATHS )
+# RCC settings
+set(AM_RCC_SOURCES  )
+set(AM_RCC_INPUTS )
+set(AM_RCC_OPTIONS_FILES )
+set(AM_RCC_OPTIONS_OPTIONS )
+# Configuration specific options
+set(AM_MOC_DEFINITIONS_Debug "QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB")
