@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
+#include <QtScript/QScriptProgram>
 #include "ui_GUI.h"
 #include "Worker.h"
 #include "Pole.h"
@@ -22,12 +23,14 @@ public:
 	bool oversized = false;
 	int data = 10;
 
-	QThread * thread;
-	Worker * worker;
-	Pole * Field;
+	QScriptProgram * program = NULL;
 
-	Generate * GenerateWindow;
-	Editor * EditorWindow;
+	QThread * thread = NULL;
+	Worker * worker = NULL;
+	Pole * Field = NULL;
+
+	Generate * GenerateWindow = NULL;
+	Editor * EditorWindow = NULL;
 private slots:
 
 	void StartSimulation();
@@ -39,6 +42,8 @@ private slots:
 	void NewField();
 	void FieldFinished();
 	void EditorSpawn();
+	void LoadScript();
+	void ExecuteScript();
 
 private:
 	Ui::GUIClass ui;

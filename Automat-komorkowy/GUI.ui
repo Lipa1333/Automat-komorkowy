@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>433</height>
+    <width>1009</width>
+    <height>667</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -196,6 +196,68 @@
     </property>
     <property name="text">
      <string>Edit</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="LoadScriptButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>440</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Load Script</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="ScriptText">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>440</y>
+      <width>881</width>
+      <height>171</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ScriptLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>620</y>
+      <width>981</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Script Status: Not loaded</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>420</y>
+      <width>1011</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="SaveScriptButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>470</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Execute</string>
     </property>
    </widget>
   </widget>

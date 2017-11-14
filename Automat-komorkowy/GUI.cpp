@@ -1,14 +1,16 @@
-#include "GUI.h"
+﻿#include "GUI.h"
 #include "Generate.h"
 #include "Editor.h"
+#include <QFileDialog>
 #include <QWidget>
 #include <QPainter>
 #include <QPaintEvent>
 #include <QString>
 #include <QAction>
 #include <QThread>
-
-
+#include <QTextStream>
+#include <iostream>
+#include <fstream>
 
 GUI::GUI(QWidget *parent)
 	: QMainWindow(parent)
@@ -35,9 +37,12 @@ GUI::GUI(QWidget *parent)
 	connect(ui.StepButton, SIGNAL(released()), this, SLOT(Step()));
 	connect(ui.ShowButton, SIGNAL(released()), this, SLOT(Redraw()));
 	connect(ui.EditButton, SIGNAL(released()), this, SLOT(EditorSpawn()));
+	connect(ui.LoadScriptButton, SIGNAL(released()), this, SLOT(LoadScript()));
+	connect(ui.SaveScriptButton, SIGNAL(released()), this, SLOT(ExecuteScript()));
 	connect(worker, SIGNAL(finished()), this, SLOT(Redraw()));
 	connect(thread, SIGNAL(started()), worker, SLOT(process()));
 	thread->start();
+
 }
 
 void GUI::paintEvent(QPaintEvent *event)
@@ -172,4 +177,30 @@ void GUI::EditorSpawn()
 {
 	EditorWindow = new Editor(Field, this);
 	EditorWindow->show();
+}
+
+void GUI::ExecuteScript()
+{
+	program = new QScriptProgram(ui.ScriptText->toPlainText());
+}
+
+void GUI::LoadScript()
+{
+	QString fileName = QFileDialog::getOpenFileName(this,
+		tr("Load File with script"), "",
+		tr("Text file (*.txt);;All Files (*)"));
+	std::string Script;
+	std::string tmp;
+	std::ifstream myReadFile;
+	myReadFile.open(fileName.toStdString());
+	if (myReadFile.is_open()) {
+		while (!myReadFile.eof()) 
+		{
+			std::getline(myReadFile, tmp);
+			Script += tmp + "\n";
+		}
+	}
+	myReadFile.close();
+
+	ui.ScriptText->document()->setPlainText(QString::fromStdString(Script));
 }

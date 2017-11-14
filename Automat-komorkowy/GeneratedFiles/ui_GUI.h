@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCheckBox>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
@@ -41,13 +42,18 @@ public:
     QPushButton *NewButton;
     QPushButton *ShowButton;
     QPushButton *EditButton;
+    QPushButton *LoadScriptButton;
+    QPlainTextEdit *ScriptText;
+    QLabel *ScriptLabel;
+    QFrame *line;
+    QPushButton *SaveScriptButton;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *GUIClass)
     {
         if (GUIClass->objectName().isEmpty())
             GUIClass->setObjectName(QStringLiteral("GUIClass"));
-        GUIClass->resize(600, 433);
+        GUIClass->resize(1009, 667);
         GUIClass->setAutoFillBackground(false);
         GUIClass->setDocumentMode(false);
         GUIClass->setTabShape(QTabWidget::Rounded);
@@ -94,6 +100,23 @@ public:
         EditButton = new QPushButton(centralWidget);
         EditButton->setObjectName(QStringLiteral("EditButton"));
         EditButton->setGeometry(QRect(10, 380, 75, 23));
+        LoadScriptButton = new QPushButton(centralWidget);
+        LoadScriptButton->setObjectName(QStringLiteral("LoadScriptButton"));
+        LoadScriptButton->setGeometry(QRect(10, 440, 75, 23));
+        ScriptText = new QPlainTextEdit(centralWidget);
+        ScriptText->setObjectName(QStringLiteral("ScriptText"));
+        ScriptText->setGeometry(QRect(110, 440, 881, 171));
+        ScriptLabel = new QLabel(centralWidget);
+        ScriptLabel->setObjectName(QStringLiteral("ScriptLabel"));
+        ScriptLabel->setGeometry(QRect(10, 620, 981, 16));
+        line = new QFrame(centralWidget);
+        line->setObjectName(QStringLiteral("line"));
+        line->setGeometry(QRect(0, 420, 1011, 21));
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+        SaveScriptButton = new QPushButton(centralWidget);
+        SaveScriptButton->setObjectName(QStringLiteral("SaveScriptButton"));
+        SaveScriptButton->setGeometry(QRect(10, 470, 75, 23));
         GUIClass->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(GUIClass);
         statusBar->setObjectName(QStringLiteral("statusBar"));
@@ -120,6 +143,9 @@ public:
         NewButton->setText(QApplication::translate("GUIClass", "New", Q_NULLPTR));
         ShowButton->setText(QApplication::translate("GUIClass", "Show", Q_NULLPTR));
         EditButton->setText(QApplication::translate("GUIClass", "Edit", Q_NULLPTR));
+        LoadScriptButton->setText(QApplication::translate("GUIClass", "Load Script", Q_NULLPTR));
+        ScriptLabel->setText(QApplication::translate("GUIClass", "Script Status: Not loaded", Q_NULLPTR));
+        SaveScriptButton->setText(QApplication::translate("GUIClass", "Execute", Q_NULLPTR));
     } // retranslateUi
 
 };
