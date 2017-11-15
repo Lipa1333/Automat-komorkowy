@@ -7,8 +7,7 @@ using namespace std;
 class Baza
 {
 public:
-	void zapisz(string nazwa_pliku, Komorka lista[], Pole pole); // arg: pole i lista komórek | Pole pole, Komorka ktab[]
-	void wczytaj();
-
+	void zapisz(string nazwa_pliku, Pole pole);
+	void wczytaj(string nazwa_pliku);
 
 };

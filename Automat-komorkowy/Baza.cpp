@@ -19,22 +19,13 @@ void operator<<(std::ostream& os, const vector<float>& v)
 	os << endl;
 }
 
-void operator<<(std::ostream& os, vector<Komorka *>& v)
+void operator<<(std::ostream& plik, Komorka& v)
 {
-	for (vector<Komorka *>::iterator it = v.begin(); it != v.end(); ++it)
-	{
-		os << *it;
-	}
-	os << endl;
-}
-
-void operator<<(std::ostream& os, Komorka& v)
-{
-	os << v.czyAgent << endl;
-	os << v.przyszleWartosci;
-	os << endl;
-	os << v.wartosci;
-	os << endl;
+	plik << "Komorka:" << endl;
+	plik << "\tczyAgent: " << v.czyAgent << endl;
+	plik << "\tiloscWartosci: " << v.iloscWartosci << endl;
+	plik << "\twartosci: " << v.wartosci;
+	plik << "\tprzyszleWartosci: " << v.przyszleWartosci;
 }
 
 void operator<<(std::ostream& os, vector<Komorka>& v)
@@ -46,7 +37,6 @@ void operator<<(std::ostream& os, vector<Komorka>& v)
 	os << endl;
 }
 
-
 void operator<<(std::ostream& os, vector<vector<Komorka>>& v)
 {
 	for (vector<vector<Komorka>>::iterator it = v.begin(); it != v.end(); ++it)
@@ -56,27 +46,32 @@ void operator<<(std::ostream& os, vector<vector<Komorka>>& v)
 	os << endl;
 }
 
-void Baza::zapisz(string nazwa_pliku, Komorka lista[], Pole pole)//Pole pole, Komorka lista[]
+void Baza::zapisz(string nazwa_pliku, Pole pole)
 {
 	fstream plik(nazwa_pliku, ios::out);
 	if (plik.good())
 	{
 		plik << "Pole:" << endl;
-		plik << "\tplansza: " << pole.plansza;
-		plik << "\tlistaAktywnychKomorek: " << pole.listaAktywnychKomorek;
-
-		for (int licznik=0; licznik < sizeof(lista); licznik++)
-		{
-			plik << "Komorka:" << endl;
-			plik << "\tczyAgent: " << lista[licznik].czyAgent << endl;
-			plik << "\tiloscWartosci: " << lista[licznik].iloscWartosci << endl;
-			plik << "\twartosci: " << lista[licznik].wartosci;
-			plik << "\tprzyszleWartosci: " << lista[licznik].przyszleWartosci;
-		}
-
+		plik << "\trozmiar: " << pole.rozmiar;
+		plik << "Komorki:" << endl;
+		plik << "\t" << pole.plansza;
 		plik.close();
 	}else
 	{
 		cout << "Blad przy probie zpisu do YAML!" << endl;
+	}
+}
+
+
+void Baza::wczytaj(string nazwa_pliku)
+{
+	fstream plik(nazwa_pliku, ios::in);
+	if (plik.good())
+	{
+		// kod
+	}
+	else
+	{
+		cout << "Blad przy probie odczytu do YAML!" << endl;
 	}
 }
