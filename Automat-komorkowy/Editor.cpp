@@ -36,7 +36,7 @@ void Editor::Edit()
 	tmp = "\0";
 
 	tmp = ui.valueText->toPlainText();
-	value = tmp.toInt();
+	value = tmp.toFloat();
 	tmp = "\0";
 
 	if (xpos < 0 || ypos < 0 || varNum < 0 || xpos >= Field->rozmiar, ypos >= Field->rozmiar || varNum >= Field->plansza[0][0].iloscWartosci)
