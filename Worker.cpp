@@ -4,14 +4,16 @@
 Worker::Worker() 
 {
 	Simulate = NULL;
+	Step = NULL;
 	Window = NULL;
 }
 
-Worker::Worker(bool * input, int * inputdata, QMainWindow * app)
+Worker::Worker(bool * input, bool * step,bool * ready, QMainWindow * app)
 {
 	Simulate = input;
+	Step = step;
+	Ready = ready;
 	Window = app;
-	data = inputdata;
 }
 
 Worker::~Worker()
@@ -21,12 +23,22 @@ Worker::~Worker()
 
 void Worker::process()
 {
-	for (int i = 0; i < 5; i++)
+	while (1)
 	{
-		if(*Simulate) *data += 10;
-
-		emit finished();
-		Sleep(uint(500));
+		while (*Simulate)
+		{
+			if (*Ready)
+			{
+				//Field->wykonajTure();
+				emit finished();
+				*Ready = false;
+			}
+		}
+		if (*Step)
+		{
+			//Field->wykonajTure();
+			*Step = false;
+			emit finished();
+		}
 	}
-
 }

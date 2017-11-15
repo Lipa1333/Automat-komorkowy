@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Tomek/Desktop/projekt grupowy
+# Install script for directory: C:/Users/Tomek/Desktop/Notatnik/Projekt_grupowy/Automat-komorkowy
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Tomek/Desktop/projekt grupowy/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Tomek/Desktop/Notatnik/Projekt_grupowy/Automat-komorkowy/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

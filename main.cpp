@@ -11,7 +11,6 @@ bool Komorka::czyPrzeplywajace = false;
 
 int main(int argc, char *argv[])
 {
-
 	QApplication a(argc, argv);
 	GUI w;
 	w.show();
@@ -20,3 +19,9 @@ int main(int argc, char *argv[])
 }
 
 
+/*
+TODO: 
+Enable evolution.
+Enable Coloring
+Enable Scrolling
+*/

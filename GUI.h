@@ -1,8 +1,12 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
+#include <QtScript/QScriptProgram>
 #include "ui_GUI.h"
 #include "Worker.h"
+#include "Pole.h"
+#include "Generate.h"
+#include "Editor.h"
 
 class GUI : public QMainWindow
 {
@@ -13,12 +17,20 @@ public:
 
 	void paintEvent(QPaintEvent *event);
 
-	bool Simulate = false;
+	bool simulate = false;
+	bool step = false;
+	bool ready = true;
+	bool oversized = false;
 	int data = 10;
 
-	QThread * thread;
-	Worker * worker;
+	QScriptProgram * program = NULL;
 
+	QThread * thread = NULL;
+	Worker * worker = NULL;
+	Pole * Field = NULL;
+
+	Generate * GenerateWindow = NULL;
+	Editor * EditorWindow = NULL;
 private slots:
 
 	void StartSimulation();
@@ -27,6 +39,11 @@ private slots:
 	void Load();
 	void Step();
 	void Redraw();
+	void NewField();
+	void FieldFinished();
+	void EditorSpawn();
+	void LoadScript();
+	void ExecuteScript();
 
 private:
 	Ui::GUIClass ui;

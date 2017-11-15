@@ -1,25 +1,40 @@
-﻿Build started 2017-11-01 18:11:20.
-     1>Project "C:\Users\Tomek\Desktop\projekt grupowy\build\Automat-komorkowy.vcxproj" on node 2 (Build target(s)).
-     1>PreBuildEvent:
-         setlocal
-         cd "C:\Users\Tomek\Desktop\projekt grupowy\build"
-         if %errorlevel% neq 0 goto :cmEnd
-         C:
-         if %errorlevel% neq 0 goto :cmEnd
-         "C:\Program Files\CMake\bin\cmake.exe" -E cmake_autogen "C:/Users/Tomek/Desktop/projekt grupowy/build/CMakeFiles/Automat-komorkowy_autogen.dir" Debug
-         if %errorlevel% neq 0 goto :cmEnd
-         :cmEnd
-         endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
-         :cmErrorLevel
-         exit /b %1
-         :cmDone
-         if %errorlevel% neq 0 goto :VCEnd
-         :VCEnd
+﻿Build started 2017-11-15 22:25:53.
+     1>Project "C:\Users\Tomek\Desktop\Notatnik\Projekt_grupowy\Automat-komorkowy\build\Automat-komorkowy.vcxproj" on node 2 (Build target(s)).
+     1>CustomBuild:
+         Building Custom Rule C:/Users/Tomek/Desktop/Notatnik/Projekt_grupowy/Automat-komorkowy/CMakeLists.txt
+         CMake does not need to re-run because C:/Users/Tomek/Desktop/Notatnik/Projekt_grupowy/Automat-komorkowy/build/CMakeFiles/generate.stamp is up-to-date.
+         Generating ui_Editor.h
+         Generating ui_Generate.h
+         Generating ui_GUI.h
+         Generating ui_FileSelect.h
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Users\Tomek\Desktop\Notatnik\Projekt_grupowy\Automat-komorkowy\build" /I"C:\Users\Tomek\Desktop\Notatnik\Projekt_grupowy\Automat-komorkowy" /I"C:\Users\Tomek\Desktop\Notatnik\Projekt_grupowy\Automat-komorkowy\build\Automat-komorkowy_autogen\include" /IC:\Qt\5.3\msvc2013_64\include /IC:\Qt\5.3\msvc2013_64\include\QtWidgets /IC:\Qt\5.3\msvc2013_64\include\QtGui /IC:\Qt\5.3\msvc2013_64\include\QtANGLE /IC:\Qt\5.3\msvc2013_64\include\QtCore /I"C:\Qt\5.3\msvc2013_64\mkspecs\win32-msvc2013" /IC:\Qt\5.3\msvc2013_64\include\QtScript /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D QT_WIDGETS_LIB /D QT_GUI_LIB /D QT_CORE_LIB /D QT_SCRIPT_LIB /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Automat-komorkowy.dir\Debug\\" /Fd"Automat-komorkowy.dir\Debug\vc120.pdb" /Gd /TP /errorReport:prompt "C:\Users\Tomek\Desktop\Notatnik\Projekt_grupowy\Automat-komorkowy\main.cpp" "C:\Users\Tomek\Desktop\Notatnik\Projekt_grupowy\Automat-komorkowy\Editor.cpp" "C:\Users\Tomek\Desktop\Notatnik\Projekt_grupowy\Automat-komorkowy\Generate.cpp" "C:\Users\Tomek\Desktop\Notatnik\Projekt_grupowy\Automat-komorkowy\GUI.cpp" "C:\Users\Tomek\Desktop\Notatnik\Projekt_grupowy\Automat-komorkowy\Komorka.cpp" "C:\Users\Tomek\Desktop\Notatnik\Projekt_grupowy\Automat-komorkowy\Pole.cpp" "C:\Users\Tomek\Desktop\Notatnik\Projekt_grupowy\Automat-komorkowy\Worker.cpp" "C:\Users\Tomek\Desktop\Notatnik\Projekt_grupowy\Automat-komorkowy\qrc_GUI.cpp" "C:\Users\Tomek\Desktop\Notatnik\Projekt_grupowy\Automat-komorkowy\build\Automat-komorkowy_autogen\mocs_compilation.cpp"
+         main.cpp
+         Editor.cpp
+         Generate.cpp
+         GUI.cpp
+     1>C:\Users\Tomek\Desktop\Notatnik\Projekt_grupowy\Automat-komorkowy\GUI.cpp(60): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+     1>C:\Users\Tomek\Desktop\Notatnik\Projekt_grupowy\Automat-komorkowy\GUI.cpp(62): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+         Komorka.cpp
+         Pole.cpp
+         Worker.cpp
+         qrc_GUI.cpp
+         mocs_compilation.cpp
+         Generating Code...
        Link:
-         Automat-komorkowy.vcxproj -> C:\Users\Tomek\Desktop\projekt grupowy\build\Debug\Automat-komorkowy.exe
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Tomek\Desktop\Notatnik\Projekt_grupowy\Automat-komorkowy\build\Debug\Automat-komorkowy.exe" /INCREMENTAL /NOLOGO C:\Qt\5.3\msvc2013_64\lib\Qt5Widgetsd.lib C:\Qt\5.3\msvc2013_64\lib\Qt5Scriptd.lib C:\Qt\5.3\msvc2013_64\lib\Qt5Guid.lib C:\Qt\5.3\msvc2013_64\lib\Qt5Cored.lib C:\Qt\5.3\msvc2013_64\lib\qtmaind.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Tomek/Desktop/Notatnik/Projekt_grupowy/Automat-komorkowy/build/Debug/Automat-komorkowy.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Tomek/Desktop/Notatnik/Projekt_grupowy/Automat-komorkowy/build/Debug/Automat-komorkowy.lib" /MACHINE:X64  /machine:x64 "Automat-komorkowy.dir\Debug\main.obj"
+         "Automat-komorkowy.dir\Debug\Editor.obj"
+         "Automat-komorkowy.dir\Debug\Generate.obj"
+         "Automat-komorkowy.dir\Debug\GUI.obj"
+         "Automat-komorkowy.dir\Debug\Komorka.obj"
+         "Automat-komorkowy.dir\Debug\Pole.obj"
+         "Automat-komorkowy.dir\Debug\Worker.obj"
+         "Automat-komorkowy.dir\Debug\qrc_GUI.obj"
+         "Automat-komorkowy.dir\Debug\mocs_compilation.obj"
+         Automat-komorkowy.vcxproj -> C:\Users\Tomek\Desktop\Notatnik\Projekt_grupowy\Automat-komorkowy\build\Debug\Automat-komorkowy.exe
        PostBuildEvent:
          setlocal
-         "C:\Program Files\CMake\bin\cmake.exe" -E copy_directory "C:/Users/Tomek/Desktop/projekt grupowy/libs" "C:/Users/Tomek/Desktop/projekt grupowy/build/Debug"
+         "C:\Program Files\CMake\bin\cmake.exe" -E copy_directory C:/Users/Tomek/Desktop/Notatnik/Projekt_grupowy/Automat-komorkowy/libraries C:/Users/Tomek/Desktop/Notatnik/Projekt_grupowy/Automat-komorkowy/build/Debug
          if %errorlevel% neq 0 goto :cmEnd
          :cmEnd
          endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -28,8 +43,8 @@
          :cmDone
          if %errorlevel% neq 0 goto :VCEnd
          :VCEnd
-     1>Done Building Project "C:\Users\Tomek\Desktop\projekt grupowy\build\Automat-komorkowy.vcxproj" (Build target(s)).
+     1>Done Building Project "C:\Users\Tomek\Desktop\Notatnik\Projekt_grupowy\Automat-komorkowy\build\Automat-komorkowy.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:17.91
+Time Elapsed 00:00:10.00
