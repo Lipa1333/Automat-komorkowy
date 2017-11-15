@@ -21,7 +21,7 @@ void Editor::Edit()
 	int xpos = -1;
 	int ypos = -1;
 	int varNum = -1;
-	int value = 0;
+	float value = 0;
 
 	QString tmp = ui.xText->toPlainText();
 	xpos = tmp.toInt();
