@@ -49,7 +49,7 @@ GUI::GUI(QWidget *parent)
 	connect(ui.verticalScrollBar, SIGNAL(sliderReleased()), this, SLOT(Redraw()));
 	connect(ui.horizontalScrollBar, SIGNAL(sliderReleased()), this, SLOT(Redraw()));
 	thread->start();
-
+	ui.SaveValueButton->setEnabled(false);
 }
 
 void GUI::paintEvent(QPaintEvent *event)
@@ -177,8 +177,8 @@ void GUI::FieldFinished()
 	if (Field->plansza.size() >= 12)
 	{
 		oversized = true;
-		ui.verticalScrollBar->setMaximum(Field->plansza.size() - 11);
-		ui.horizontalScrollBar->setMaximum(Field->plansza.size() - 11);
+		ui.verticalScrollBar->setMaximum(Field->plansza.size() - 12);
+		ui.horizontalScrollBar->setMaximum(Field->plansza.size() - 12);
 
 	}
 	else
@@ -193,7 +193,7 @@ void GUI::FieldFinished()
 			Field->plansza[x][y].wartosci[0] = 0x000000FF + 10* x + 5 *y;
 		}
 	}
-
+	ui.SaveValueButton->setEnabled(true);
 }
 
 void GUI::Edit()
