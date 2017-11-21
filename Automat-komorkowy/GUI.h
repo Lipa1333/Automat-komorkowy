@@ -6,7 +6,7 @@
 #include "Worker.h"
 #include "Pole.h"
 #include "Generate.h"
-#include "Editor.h"
+#include "Scope.h"
 
 class GUI : public QMainWindow
 {
@@ -30,7 +30,7 @@ public:
 	Pole * Field = NULL;
 
 	Generate * GenerateWindow = NULL;
-	Editor * EditorWindow = NULL;
+	Scope * ScopeWindow = NULL;
 private slots:
 
 	void StartSimulation();
@@ -41,9 +41,11 @@ private slots:
 	void Redraw();
 	void NewField();
 	void FieldFinished();
-	void EditorSpawn();
+	void Edit();
 	void LoadScript();
 	void ExecuteScript();
+	void NewScope();
+	void KillScope();
 
 private:
 	Ui::GUIClass ui;

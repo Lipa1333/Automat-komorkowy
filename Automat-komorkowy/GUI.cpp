@@ -1,6 +1,6 @@
 ﻿#include "GUI.h"
 #include "Generate.h"
-#include "Editor.h"
+#include "Scope.h"
 #include <QFileDialog>
 #include <QWidget>
 #include <QPainter>
@@ -36,11 +36,16 @@ GUI::GUI(QWidget *parent)
 	connect(ui.StartButton, SIGNAL(released()), this, SLOT(StartSimulation()));
 	connect(ui.StepButton, SIGNAL(released()), this, SLOT(Step()));
 	connect(ui.ShowButton, SIGNAL(released()), this, SLOT(Redraw()));
-	connect(ui.EditButton, SIGNAL(released()), this, SLOT(EditorSpawn()));
+	connect(ui.SaveValueButton, SIGNAL(released()), this, SLOT(Edit()));
+	connect(ui.ScopeButton, SIGNAL(released()), this, SLOT(NewScope()));
 	connect(ui.LoadScriptButton, SIGNAL(released()), this, SLOT(LoadScript()));
 	connect(ui.SaveScriptButton, SIGNAL(released()), this, SLOT(ExecuteScript()));
 	connect(worker, SIGNAL(finished()), this, SLOT(Redraw()));
 	connect(thread, SIGNAL(started()), worker, SLOT(process()));
+	ui.verticalScrollBar->setTracking(true);
+	ui.horizontalScrollBar->setTracking(true);
+	connect(ui.verticalScrollBar, SIGNAL(sliderReleased()), this, SLOT(Redraw()));
+	connect(ui.horizontalScrollBar, SIGNAL(sliderReleased()), this, SLOT(Redraw()));
 	thread->start();
 
 }
@@ -48,23 +53,12 @@ GUI::GUI(QWidget *parent)
 void GUI::paintEvent(QPaintEvent *event)
 {
 	QString xCoord, yCoord;
-	xCoord = ui.XCoordinateText->toPlainText();
-	yCoord = ui.YCoordinateText->toPlainText();
-	int xpos = -1;
-	int ypos = -1;
-	xpos = xCoord.toInt();
-	ypos = yCoord.toInt();
-
-	if (xpos < 0) xpos = 0;
-	if (Field != NULL && xpos > Field->plansza.size() - 11) xpos = Field->plansza.size() - 12;
-	if (ypos < 0) ypos = 0;
-	if (Field != NULL && ypos > Field->plansza.size() - 11) ypos = Field->plansza.size() - 12;
-	
 	QPainter painter;
 	if(Field != NULL)
 	{
 		uint32_t r, g, b, a, value;
 		r = g = b = a = 0;
+		int tmp = ui.horizontalScrollBar->value();
 		painter.begin(this);
 		if (oversized)
 		{
@@ -72,7 +66,7 @@ void GUI::paintEvent(QPaintEvent *event)
 			{
 				for (int y = 0; y <= 11; y++)
 				{
-					value = Field->plansza[x + xpos][y + ypos].wartosci[0];
+					value = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[0];
 					a = (value & 0x000000FF);
 					b = (value & 0x0000FF00);
 					b = b >> 8;
@@ -136,12 +130,16 @@ void GUI::Step()
 
 void GUI::Save()
 {
-	/*TODO*/
+	QString fileName = QFileDialog::getSaveFileName(this,
+		tr("Save file"), "",
+		tr("Text file (*.txt);;All Files (*)"));
 }
 
 void GUI::Load()
 {
-	/*TODO*/
+	QString fileName = QFileDialog::getOpenFileName(this,
+		tr("Load file"), "",
+		tr("Text file (*.txt);;All Files (*)"));
 }
 
 void GUI::NewField()
@@ -151,13 +149,40 @@ void GUI::NewField()
 	connect(GenerateWindow, SIGNAL(finished()), this, SLOT(FieldFinished()));
 }
 
+void GUI::NewScope()
+{
+	ScopeWindow = new Scope(this, Field);
+	ScopeWindow->show();
+	connect(ScopeWindow, SIGNAL(finished()), this, SLOT(KillScope()));
+}
+
+void GUI::KillScope()
+{
+	ScopeWindow->close();
+	ScopeWindow = NULL;
+}
+
 void GUI::FieldFinished()
 {
+	if (Field != NULL)
+	{
+		delete(Field);
+		Field = NULL;
+	}
 	Field = GenerateWindow->Field;
 	worker->Field = Field;
 	GenerateWindow->close();
-	oversized = Field->plansza.size() >= 12;
+	if (Field->plansza.size() >= 12)
+	{
+		oversized = true;
+		ui.verticalScrollBar->setMaximum(Field->plansza.size() - 11);
+		ui.horizontalScrollBar->setMaximum(Field->plansza.size() - 11);
 
+	}
+	else
+	{
+		oversized = false;
+	}
 
 	for (int x = 0; x < Field->plansza.size(); x++)
 	{
@@ -173,10 +198,37 @@ void GUI::FieldFinished()
 
 }
 
-void GUI::EditorSpawn()
+void GUI::Edit()
 {
-	EditorWindow = new Editor(Field, this);
-	EditorWindow->show();
+	int xpos = -1;
+	int ypos = -1;
+	int varNum = -1;
+	float value = 0;
+
+	QString tmp = ui.xPosEditText->toPlainText();
+	xpos = tmp.toInt();
+	tmp = "\0";
+
+	tmp = ui.yPosEditText->toPlainText();
+	ypos = tmp.toInt();
+	tmp = "\0";
+
+	tmp = ui.VarNumText->toPlainText();
+	varNum = tmp.toInt();
+	tmp = "\0";
+
+	tmp = ui.ValueEditText->toPlainText();
+	value = tmp.toFloat();
+	tmp = "\0";
+
+	if (xpos < 0 || ypos < 0 || varNum < 0 || xpos >= Field->rozmiar, ypos >= Field->rozmiar || varNum >= Field->plansza[0][0].iloscWartosci)
+	{
+		return;
+	}
+
+	Field->plansza[xpos][ypos].wartosci[varNum] = value;
+
+	Redraw();
 }
 
 void GUI::ExecuteScript()
