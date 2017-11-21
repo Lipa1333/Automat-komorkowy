@@ -38,13 +38,13 @@
     <ClCompile Include="Generate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_Editor.cpp">
+    <ClCompile Include="GeneratedFiles\Debug\moc_Scope.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_Editor.cpp">
+    <ClCompile Include="GeneratedFiles\Release\moc_Scope.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Editor.cpp">
+    <ClCompile Include="Scope.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -94,14 +94,14 @@
     <CustomBuild Include="Generate.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="Editor.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Editor.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="FileSelect.ui">
       <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Scope.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Scope.h">
+      <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -117,10 +117,10 @@
     <ClInclude Include="GeneratedFiles\ui_Generate.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_Editor.h">
+    <ClInclude Include="GeneratedFiles\ui_FileSelect.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_FileSelect.h">
+    <ClInclude Include="GeneratedFiles\ui_Scope.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>

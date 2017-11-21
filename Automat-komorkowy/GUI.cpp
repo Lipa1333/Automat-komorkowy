@@ -9,6 +9,8 @@
 #include <QAction>
 #include <QThread>
 #include <QTextStream>
+#include <QScriptEngine>
+#include <QScriptSyntaxCheckResult>
 #include <iostream>
 #include <fstream>
 
@@ -192,10 +194,6 @@ void GUI::FieldFinished()
 		}
 	}
 
-	ui.StepButton->setEnabled(true);
-	ui.StartButton->setEnabled(true);
-	ui.SaveButton->setEnabled(true);
-
 }
 
 void GUI::Edit()
@@ -233,7 +231,27 @@ void GUI::Edit()
 
 void GUI::ExecuteScript()
 {
+	QScriptEngine engine;
 	program = new QScriptProgram(ui.ScriptText->toPlainText());
+	QScriptSyntaxCheckResult res = engine.checkSyntax(program->sourceCode());
+	switch (res.state())
+	{
+	case 0:
+		ui.ScriptLabel->setText("Script Status: The script contains a syntax error");
+		break;
+	case 1:
+		ui.ScriptLabel->setText("Script Status: The script is incomplete");
+		break;
+	case 2:
+		ui.ScriptLabel->setText("Script Status: Correct");
+		ui.StepButton->setEnabled(true);
+		ui.StartButton->setEnabled(true);
+		ui.SaveButton->setEnabled(true);
+		break;
+
+	default:
+		break;
+	}
 }
 
 void GUI::LoadScript()
