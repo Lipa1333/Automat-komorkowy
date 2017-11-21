@@ -26,7 +26,7 @@ public:
 	QScriptProgram * program = NULL;
 
 	QThread * thread = NULL;
-	Worker * worker = NULL;
+	class Worker * worker = NULL;
 	Pole * Field = NULL;
 
 	Generate * GenerateWindow = NULL;

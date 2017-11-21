@@ -1,4 +1,5 @@
 #include "Worker.h"
+#include "GUI.h"
 #include <windows.h>
 
 Worker::Worker() 
@@ -8,7 +9,7 @@ Worker::Worker()
 	Window = NULL;
 }
 
-Worker::Worker(bool * input, bool * step,bool * ready, QMainWindow * app)
+Worker::Worker(bool * input, bool * step,bool * ready, GUI * app)
 {
 	Simulate = input;
 	Step = step;
