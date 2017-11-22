@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #pragma once
 #include "Komorka.h"
 #include "Pole.h"
@@ -13,10 +12,17 @@ using namespace std;
 
 void operator<<(std::ostream& os, const vector<float>& v)
 {
+	os << "[ " << endl;
 	for (vector<float>::const_iterator i = v.begin(); i != v.end(); ++i) {
-		os << *i << " , ";
+		if (i+1 == v.end())
+		{
+			os << *i;
+		}else
+		{
+			os << *i << " , ";
+		}
 	}
-	os << endl;
+	os << " ]" << endl;
 }
 
 void operator<<(std::ostream& plik, Komorka& v)

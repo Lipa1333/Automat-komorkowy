@@ -1,13 +1,10 @@
 #pragma once
-
-#include <vector>
-#include <list>
 #include <list>
 using namespace std;
-class Baza
+class  Baza
 {
 public:
-	void zapisz(string nazwa_pliku, Pole pole);
-	void wczytaj(string nazwa_pliku);
+	void static zapisz(string nazwa_pliku, Pole pole);
+	void static wczytaj(string nazwa_pliku);
 
 };
