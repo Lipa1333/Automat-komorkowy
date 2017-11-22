@@ -231,9 +231,9 @@ void GUI::Edit()
 
 void GUI::ExecuteScript()
 {
-	QScriptEngine engine;
 	program = new QScriptProgram(ui.ScriptText->toPlainText());
-	QScriptSyntaxCheckResult res = engine.checkSyntax(program->sourceCode());
+	engine = new QScriptEngine();
+	QScriptSyntaxCheckResult res = engine->checkSyntax(ui.ScriptText->toPlainText());
 	switch (res.state())
 	{
 	case 0:
@@ -274,3 +274,8 @@ void GUI::LoadScript()
 
 	ui.ScriptText->document()->setPlainText(QString::fromStdString(Script));
 }
+
+/*
+int argc;
+QCoreApplication a(argc, NULL);
+*/

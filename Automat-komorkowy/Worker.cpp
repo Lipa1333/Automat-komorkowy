@@ -43,3 +43,33 @@ void Worker::process()
 		}
 	}
 }
+
+
+
+/*
+vector<float> ExecuteScript(vector<float> cell, const vector<vector<float>> neighbors)
+{
+	engine.evaluate(program);
+	QScriptValue global = engine.globalObject();
+	QScriptValue edit = global.property("edit");
+	QScriptValue v1 = qScriptValueFromSequence(&engine, cell);
+	QScriptValueList args;
+	args.append(qScriptValueFromSequence(&engine, cell));
+	for (int i = 0; i < neighbors.size(); i++)
+	{
+		args.append(qScriptValueFromSequence(&engine, neighbors[i]));
+	}
+	QScriptValue result = edit.call(QScriptValue(), args);
+	if (!result.isArray())
+	{
+		return cell;
+	}
+	QScriptValueIterator it(result);
+	for (int i = 0; i < cell.size(); i++)
+	{
+		it.next();
+		cell[i] = it.value().toNumber();
+	}
+	return cell;
+}
+*/

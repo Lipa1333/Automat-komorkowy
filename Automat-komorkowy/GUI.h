@@ -2,6 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include <QtScript/QScriptProgram>
+#include <QScriptEngine>
 #include "ui_GUI.h"
 #include "Worker.h"
 #include "Pole.h"
@@ -23,6 +24,7 @@ public:
 	bool oversized = false;
 	int data = 10;
 
+	QScriptEngine * engine = NULL;
 	QScriptProgram * program = NULL;
 
 	QThread * thread = NULL;
