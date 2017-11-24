@@ -3,6 +3,8 @@
 #include "GUI.h"
 #include "Pole.h"
 
+
+
 class Worker : public QObject {
 	Q_OBJECT
 public:
@@ -12,8 +14,8 @@ public:
 	bool * Simulate;
 	bool * Step;
 	bool * Ready;
-	GUI * Window;
-	Pole * Field;
+	class GUI * Window;
+	class Pole * Field;
 
 public slots:
 	void process();

@@ -19,10 +19,10 @@ public:
 	Pole(int rozmiar, bool czyMoorea, int iloscWartosci, bool czyPrzeplywajace);
 	~Pole();
 
-	void wykonajTure();
+	void wykonajTure(class GUI * Window);
 	void wprowadzKomorke(int x, int y, std::vector<float> wartosci);
 
-	void wykonajTurePrzejsciePierwsze();
+	void wykonajTurePrzejsciePierwsze(class GUI * Window);
 	void wykonajTurePrzejscieDrugie();
 
 };

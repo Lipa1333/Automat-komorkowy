@@ -31,8 +31,8 @@ public:
 	class Worker * worker = NULL;
 	Pole * Field = NULL;
 
-	Generate * GenerateWindow = NULL;
-	Scope * ScopeWindow = NULL;
+	class Generate * GenerateWindow = NULL;
+	class Scope * ScopeWindow = NULL;
 private slots:
 
 	void StartSimulation();
