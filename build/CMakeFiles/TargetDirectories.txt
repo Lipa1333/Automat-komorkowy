@@ -1,4 +1,0 @@
-C:/Users/Tomek/Desktop/Notatnik/Projekt_grupowy/Automat-komorkowy/build/CMakeFiles/Automat-komorkowy.dir
-C:/Users/Tomek/Desktop/Notatnik/Projekt_grupowy/Automat-komorkowy/build/CMakeFiles/Automat-komorkowy_autogen.dir
-C:/Users/Tomek/Desktop/Notatnik/Projekt_grupowy/Automat-komorkowy/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/Tomek/Desktop/Notatnik/Projekt_grupowy/Automat-komorkowy/build/CMakeFiles/ZERO_CHECK.dir

@@ -2,8 +2,7 @@
 
 #include <vector>
 #include "Pole.h"
-
-
+#include "GUI.h"
 class Komorka
 {
 public:
@@ -33,7 +32,7 @@ public:
 
 	//brak interpretacji stanow- kazda komorka caly czas zyje
 
-	static std::vector<float>(*dzialanie)(std::vector<float> v, std::vector<std::vector<float>> n); // tymczasowe, wskaznik na funkcje ktora bedzie zapisana w skrypci
+	static std::vector<float>(*dzialanie)(std::vector<float> v, std::vector<std::vector<float>> n,class  GUI * Window); // tymczasowe, wskaznik na funkcje ktora bedzie zapisana w skrypci
 
 
 

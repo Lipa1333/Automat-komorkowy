@@ -14,6 +14,10 @@ public:
 private slots:
 
 	void Create();
+	void borderCheckClassic(bool checked);
+	void borderCheckFloat(bool checked);
+	void NeighborsCheckMoore(bool checked);
+	void NeighborsCheckVon(bool checked);
 
 signals:
 	void finished();

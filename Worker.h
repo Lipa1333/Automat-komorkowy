@@ -1,18 +1,21 @@
 #pragma once
 #include <QtWidgets/QMainWindow>
+#include "GUI.h"
 #include "Pole.h"
+
+
 
 class Worker : public QObject {
 	Q_OBJECT
 public:
 	Worker();
-	Worker(bool * input, bool * step, bool * ready, QMainWindow * app);
+	Worker(bool * input, bool * step, bool * ready, class GUI * app);
 	~Worker();
 	bool * Simulate;
 	bool * Step;
 	bool * Ready;
-	QMainWindow * Window;
-	Pole * Field;
+	class GUI * Window;
+	class Pole * Field;
 
 public slots:
 	void process();

@@ -2,11 +2,12 @@
 
 #include <QtWidgets/QMainWindow>
 #include <QtScript/QScriptProgram>
+#include <QScriptEngine>
 #include "ui_GUI.h"
 #include "Worker.h"
 #include "Pole.h"
 #include "Generate.h"
-#include "Editor.h"
+#include "Scope.h"
 
 class GUI : public QMainWindow
 {
@@ -23,14 +24,15 @@ public:
 	bool oversized = false;
 	int data = 10;
 
+	QScriptEngine * engine = NULL;
 	QScriptProgram * program = NULL;
 
 	QThread * thread = NULL;
-	Worker * worker = NULL;
+	class Worker * worker = NULL;
 	Pole * Field = NULL;
 
-	Generate * GenerateWindow = NULL;
-	Editor * EditorWindow = NULL;
+	class Generate * GenerateWindow = NULL;
+	class Scope * ScopeWindow = NULL;
 private slots:
 
 	void StartSimulation();
@@ -41,9 +43,11 @@ private slots:
 	void Redraw();
 	void NewField();
 	void FieldFinished();
-	void EditorSpawn();
+	void Edit();
 	void LoadScript();
 	void ExecuteScript();
+	void NewScope();
+	void KillScope();
 
 private:
 	Ui::GUIClass ui;

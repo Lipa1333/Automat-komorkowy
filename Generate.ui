@@ -43,27 +43,33 @@
    <widget class="QCheckBox" name="MooreBox">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>90</y>
+      <x>240</x>
+      <y>30</y>
       <width>70</width>
       <height>17</height>
      </rect>
     </property>
     <property name="text">
-     <string>Is Moore</string>
+     <string>Moore</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QCheckBox" name="FloatBox">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>120</y>
+      <x>240</x>
+      <y>100</y>
       <width>70</width>
       <height>17</height>
      </rect>
     </property>
     <property name="text">
-     <string>Is Floating</string>
+     <string>Floating</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="GenerateButton">
@@ -97,6 +103,58 @@
       <width>104</width>
       <height>31</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>10</y>
+      <width>101</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Neighbors rules:</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="VonBox">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>50</y>
+      <width>121</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Von Neumann</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>80</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Border rules:</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="ClassicBox">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>120</y>
+      <width>70</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Classic</string>
     </property>
    </widget>
   </widget>

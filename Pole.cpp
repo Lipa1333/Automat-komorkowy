@@ -60,7 +60,7 @@ void Pole::wprowadzKomorke(int x, int y, std::vector<float> wartosci)
 	plansza[y][x].przyszleWartosci = wartosci;
 }
 
-void Pole::wykonajTurePrzejsciePierwsze()
+void Pole::wykonajTurePrzejsciePierwsze(GUI * Window)
 {
 
 	for (int i = 0; i < rozmiar; i++)
@@ -72,7 +72,7 @@ void Pole::wykonajTurePrzejsciePierwsze()
 			{
 				tmp.push_back(plansza[i][j].sasiedzi[k]->wartosci);
 			}
-				plansza[i][j].przyszleWartosci = Komorka::dzialanie(plansza[i][j].wartosci, tmp);
+				plansza[i][j].przyszleWartosci = Komorka::dzialanie(plansza[i][j].wartosci, tmp, Window);
 		}
 	}
 }
@@ -88,8 +88,8 @@ void Pole::wykonajTurePrzejscieDrugie()
 	}
 }
 
-void Pole::wykonajTure()
+void Pole::wykonajTure(class GUI * Window)
 {
-	wykonajTurePrzejsciePierwsze();
+	wykonajTurePrzejsciePierwsze(Window);
 	wykonajTurePrzejscieDrugie();
 }
