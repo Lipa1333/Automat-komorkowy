@@ -12,7 +12,7 @@
 
 # =============================================================================
 # Project: Automat-komorkowy
-# Configuration: Debug
+# Configuration: RelWithDebInfo
 # =============================================================================
 
 #############################################
@@ -36,66 +36,74 @@ include rules.ninja
 #############################################
 # Order-only phony target for Automat-komorkowy
 
-build cmake_object_order_depends_target_Automat-komorkowy: phony || Automat-komorkowy_autogen ui_FileSelect.h ui_GUI.h ui_Generate.h ui_Scope.h
+build cmake_object_order_depends_target_Automat-komorkowy: phony || Automat-komorkowy_autogen qrc_GUI.cpp ui_FileSelect.h ui_GUI.h ui_Generate.h ui_Scope.h
 build CMakeFiles\Automat-komorkowy.dir\main.cpp.obj: CXX_COMPILER__Automat-komorkowy ..\..\main.cpp || cmake_object_order_depends_target_Automat-komorkowy
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SCRIPT_LIB -DQT_WIDGETS_LIB
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DQT_WIDGETS_LIB
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /Zi /O2 /Ob1 /DNDEBUG
+  INCLUDES = -I. -I..\..\ -IAutomat-komorkowy_autogen\include -IC:\Qt\5.9.2\msvc2017_64\include -IC:\Qt\5.9.2\msvc2017_64\include\QtWidgets -IC:\Qt\5.9.2\msvc2017_64\include\QtGui -IC:\Qt\5.9.2\msvc2017_64\include\QtANGLE -IC:\Qt\5.9.2\msvc2017_64\include\QtCore -IC:\Qt\5.9.2\msvc2017_64\.\mkspecs\win32-msvc -IC:\Qt\5.9.2\msvc2017_64\include\QtScript
+  OBJECT_DIR = CMakeFiles\Automat-komorkowy.dir
+  OBJECT_FILE_DIR = CMakeFiles\Automat-komorkowy.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Automat-komorkowy.dir\
+  TARGET_PDB = Automat-komorkowy.pdb
+build CMakeFiles\Automat-komorkowy.dir\qrc_GUI.cpp.obj: CXX_COMPILER__Automat-komorkowy qrc_GUI.cpp || cmake_object_order_depends_target_Automat-komorkowy
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DQT_WIDGETS_LIB
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /Zi /O2 /Ob1 /DNDEBUG
   INCLUDES = -I. -I..\..\ -IAutomat-komorkowy_autogen\include -IC:\Qt\5.9.2\msvc2017_64\include -IC:\Qt\5.9.2\msvc2017_64\include\QtWidgets -IC:\Qt\5.9.2\msvc2017_64\include\QtGui -IC:\Qt\5.9.2\msvc2017_64\include\QtANGLE -IC:\Qt\5.9.2\msvc2017_64\include\QtCore -IC:\Qt\5.9.2\msvc2017_64\.\mkspecs\win32-msvc -IC:\Qt\5.9.2\msvc2017_64\include\QtScript
   OBJECT_DIR = CMakeFiles\Automat-komorkowy.dir
   OBJECT_FILE_DIR = CMakeFiles\Automat-komorkowy.dir
   TARGET_COMPILE_PDB = CMakeFiles\Automat-komorkowy.dir\
   TARGET_PDB = Automat-komorkowy.pdb
 build CMakeFiles\Automat-komorkowy.dir\Generate.cpp.obj: CXX_COMPILER__Automat-komorkowy ..\..\Generate.cpp || cmake_object_order_depends_target_Automat-komorkowy
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SCRIPT_LIB -DQT_WIDGETS_LIB
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DQT_WIDGETS_LIB
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /Zi /O2 /Ob1 /DNDEBUG
   INCLUDES = -I. -I..\..\ -IAutomat-komorkowy_autogen\include -IC:\Qt\5.9.2\msvc2017_64\include -IC:\Qt\5.9.2\msvc2017_64\include\QtWidgets -IC:\Qt\5.9.2\msvc2017_64\include\QtGui -IC:\Qt\5.9.2\msvc2017_64\include\QtANGLE -IC:\Qt\5.9.2\msvc2017_64\include\QtCore -IC:\Qt\5.9.2\msvc2017_64\.\mkspecs\win32-msvc -IC:\Qt\5.9.2\msvc2017_64\include\QtScript
   OBJECT_DIR = CMakeFiles\Automat-komorkowy.dir
   OBJECT_FILE_DIR = CMakeFiles\Automat-komorkowy.dir
   TARGET_COMPILE_PDB = CMakeFiles\Automat-komorkowy.dir\
   TARGET_PDB = Automat-komorkowy.pdb
 build CMakeFiles\Automat-komorkowy.dir\GUI.cpp.obj: CXX_COMPILER__Automat-komorkowy ..\..\GUI.cpp || cmake_object_order_depends_target_Automat-komorkowy
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SCRIPT_LIB -DQT_WIDGETS_LIB
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DQT_WIDGETS_LIB
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /Zi /O2 /Ob1 /DNDEBUG
   INCLUDES = -I. -I..\..\ -IAutomat-komorkowy_autogen\include -IC:\Qt\5.9.2\msvc2017_64\include -IC:\Qt\5.9.2\msvc2017_64\include\QtWidgets -IC:\Qt\5.9.2\msvc2017_64\include\QtGui -IC:\Qt\5.9.2\msvc2017_64\include\QtANGLE -IC:\Qt\5.9.2\msvc2017_64\include\QtCore -IC:\Qt\5.9.2\msvc2017_64\.\mkspecs\win32-msvc -IC:\Qt\5.9.2\msvc2017_64\include\QtScript
   OBJECT_DIR = CMakeFiles\Automat-komorkowy.dir
   OBJECT_FILE_DIR = CMakeFiles\Automat-komorkowy.dir
   TARGET_COMPILE_PDB = CMakeFiles\Automat-komorkowy.dir\
   TARGET_PDB = Automat-komorkowy.pdb
 build CMakeFiles\Automat-komorkowy.dir\Komorka.cpp.obj: CXX_COMPILER__Automat-komorkowy ..\..\Komorka.cpp || cmake_object_order_depends_target_Automat-komorkowy
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SCRIPT_LIB -DQT_WIDGETS_LIB
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DQT_WIDGETS_LIB
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /Zi /O2 /Ob1 /DNDEBUG
   INCLUDES = -I. -I..\..\ -IAutomat-komorkowy_autogen\include -IC:\Qt\5.9.2\msvc2017_64\include -IC:\Qt\5.9.2\msvc2017_64\include\QtWidgets -IC:\Qt\5.9.2\msvc2017_64\include\QtGui -IC:\Qt\5.9.2\msvc2017_64\include\QtANGLE -IC:\Qt\5.9.2\msvc2017_64\include\QtCore -IC:\Qt\5.9.2\msvc2017_64\.\mkspecs\win32-msvc -IC:\Qt\5.9.2\msvc2017_64\include\QtScript
   OBJECT_DIR = CMakeFiles\Automat-komorkowy.dir
   OBJECT_FILE_DIR = CMakeFiles\Automat-komorkowy.dir
   TARGET_COMPILE_PDB = CMakeFiles\Automat-komorkowy.dir\
   TARGET_PDB = Automat-komorkowy.pdb
 build CMakeFiles\Automat-komorkowy.dir\Pole.cpp.obj: CXX_COMPILER__Automat-komorkowy ..\..\Pole.cpp || cmake_object_order_depends_target_Automat-komorkowy
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SCRIPT_LIB -DQT_WIDGETS_LIB
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DQT_WIDGETS_LIB
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /Zi /O2 /Ob1 /DNDEBUG
   INCLUDES = -I. -I..\..\ -IAutomat-komorkowy_autogen\include -IC:\Qt\5.9.2\msvc2017_64\include -IC:\Qt\5.9.2\msvc2017_64\include\QtWidgets -IC:\Qt\5.9.2\msvc2017_64\include\QtGui -IC:\Qt\5.9.2\msvc2017_64\include\QtANGLE -IC:\Qt\5.9.2\msvc2017_64\include\QtCore -IC:\Qt\5.9.2\msvc2017_64\.\mkspecs\win32-msvc -IC:\Qt\5.9.2\msvc2017_64\include\QtScript
   OBJECT_DIR = CMakeFiles\Automat-komorkowy.dir
   OBJECT_FILE_DIR = CMakeFiles\Automat-komorkowy.dir
   TARGET_COMPILE_PDB = CMakeFiles\Automat-komorkowy.dir\
   TARGET_PDB = Automat-komorkowy.pdb
 build CMakeFiles\Automat-komorkowy.dir\Scope.cpp.obj: CXX_COMPILER__Automat-komorkowy ..\..\Scope.cpp || cmake_object_order_depends_target_Automat-komorkowy
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SCRIPT_LIB -DQT_WIDGETS_LIB
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DQT_WIDGETS_LIB
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /Zi /O2 /Ob1 /DNDEBUG
   INCLUDES = -I. -I..\..\ -IAutomat-komorkowy_autogen\include -IC:\Qt\5.9.2\msvc2017_64\include -IC:\Qt\5.9.2\msvc2017_64\include\QtWidgets -IC:\Qt\5.9.2\msvc2017_64\include\QtGui -IC:\Qt\5.9.2\msvc2017_64\include\QtANGLE -IC:\Qt\5.9.2\msvc2017_64\include\QtCore -IC:\Qt\5.9.2\msvc2017_64\.\mkspecs\win32-msvc -IC:\Qt\5.9.2\msvc2017_64\include\QtScript
   OBJECT_DIR = CMakeFiles\Automat-komorkowy.dir
   OBJECT_FILE_DIR = CMakeFiles\Automat-komorkowy.dir
   TARGET_COMPILE_PDB = CMakeFiles\Automat-komorkowy.dir\
   TARGET_PDB = Automat-komorkowy.pdb
 build CMakeFiles\Automat-komorkowy.dir\Worker.cpp.obj: CXX_COMPILER__Automat-komorkowy ..\..\Worker.cpp || cmake_object_order_depends_target_Automat-komorkowy
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SCRIPT_LIB -DQT_WIDGETS_LIB
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DQT_WIDGETS_LIB
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /Zi /O2 /Ob1 /DNDEBUG
   INCLUDES = -I. -I..\..\ -IAutomat-komorkowy_autogen\include -IC:\Qt\5.9.2\msvc2017_64\include -IC:\Qt\5.9.2\msvc2017_64\include\QtWidgets -IC:\Qt\5.9.2\msvc2017_64\include\QtGui -IC:\Qt\5.9.2\msvc2017_64\include\QtANGLE -IC:\Qt\5.9.2\msvc2017_64\include\QtCore -IC:\Qt\5.9.2\msvc2017_64\.\mkspecs\win32-msvc -IC:\Qt\5.9.2\msvc2017_64\include\QtScript
   OBJECT_DIR = CMakeFiles\Automat-komorkowy.dir
   OBJECT_FILE_DIR = CMakeFiles\Automat-komorkowy.dir
   TARGET_COMPILE_PDB = CMakeFiles\Automat-komorkowy.dir\
   TARGET_PDB = Automat-komorkowy.pdb
 build CMakeFiles\Automat-komorkowy.dir\Automat-komorkowy_autogen\mocs_compilation.cpp.obj: CXX_COMPILER__Automat-komorkowy Automat-komorkowy_autogen\mocs_compilation.cpp || cmake_object_order_depends_target_Automat-komorkowy
-  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SCRIPT_LIB -DQT_WIDGETS_LIB
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DQT_WIDGETS_LIB
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /Zi /O2 /Ob1 /DNDEBUG
   INCLUDES = -I. -I..\..\ -IAutomat-komorkowy_autogen\include -IC:\Qt\5.9.2\msvc2017_64\include -IC:\Qt\5.9.2\msvc2017_64\include\QtWidgets -IC:\Qt\5.9.2\msvc2017_64\include\QtGui -IC:\Qt\5.9.2\msvc2017_64\include\QtANGLE -IC:\Qt\5.9.2\msvc2017_64\include\QtCore -IC:\Qt\5.9.2\msvc2017_64\.\mkspecs\win32-msvc -IC:\Qt\5.9.2\msvc2017_64\include\QtScript
   OBJECT_DIR = CMakeFiles\Automat-komorkowy.dir
   OBJECT_FILE_DIR = CMakeFiles\Automat-komorkowy.dir\Automat-komorkowy_autogen
@@ -109,12 +117,12 @@ build CMakeFiles\Automat-komorkowy.dir\Automat-komorkowy_autogen\mocs_compilatio
 #############################################
 # Link the executable Automat-komorkowy.exe
 
-build Automat-komorkowy.exe: CXX_EXECUTABLE_LINKER__Automat-komorkowy CMakeFiles\Automat-komorkowy.dir\main.cpp.obj CMakeFiles\Automat-komorkowy.dir\Generate.cpp.obj CMakeFiles\Automat-komorkowy.dir\GUI.cpp.obj CMakeFiles\Automat-komorkowy.dir\Komorka.cpp.obj CMakeFiles\Automat-komorkowy.dir\Pole.cpp.obj CMakeFiles\Automat-komorkowy.dir\Scope.cpp.obj CMakeFiles\Automat-komorkowy.dir\Worker.cpp.obj CMakeFiles\Automat-komorkowy.dir\Automat-komorkowy_autogen\mocs_compilation.cpp.obj | C$:\Qt\5.9.2\msvc2017_64\lib\Qt5Widgetsd.lib C$:\Qt\5.9.2\msvc2017_64\lib\Qt5Scriptd.lib C$:\Qt\5.9.2\msvc2017_64\lib\Qt5Guid.lib C$:\Qt\5.9.2\msvc2017_64\lib\Qt5Cored.lib C$:\Qt\5.9.2\msvc2017_64\lib\qtmaind.lib || Automat-komorkowy_autogen
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+build Automat-komorkowy.exe: CXX_EXECUTABLE_LINKER__Automat-komorkowy CMakeFiles\Automat-komorkowy.dir\main.cpp.obj CMakeFiles\Automat-komorkowy.dir\qrc_GUI.cpp.obj CMakeFiles\Automat-komorkowy.dir\Generate.cpp.obj CMakeFiles\Automat-komorkowy.dir\GUI.cpp.obj CMakeFiles\Automat-komorkowy.dir\Komorka.cpp.obj CMakeFiles\Automat-komorkowy.dir\Pole.cpp.obj CMakeFiles\Automat-komorkowy.dir\Scope.cpp.obj CMakeFiles\Automat-komorkowy.dir\Worker.cpp.obj CMakeFiles\Automat-komorkowy.dir\Automat-komorkowy_autogen\mocs_compilation.cpp.obj | C$:\Qt\5.9.2\msvc2017_64\lib\Qt5Widgets.lib C$:\Qt\5.9.2\msvc2017_64\lib\Qt5Script.lib C$:\Qt\5.9.2\msvc2017_64\lib\Qt5Gui.lib C$:\Qt\5.9.2\msvc2017_64\lib\Qt5Core.lib C$:\Qt\5.9.2\msvc2017_64\lib\qtmain.lib || Automat-komorkowy_autogen
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /Zi /O2 /Ob1 /DNDEBUG
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
-  LINK_LIBRARIES = C:\Qt\5.9.2\msvc2017_64\lib\Qt5Widgetsd.lib C:\Qt\5.9.2\msvc2017_64\lib\Qt5Scriptd.lib C:\Qt\5.9.2\msvc2017_64\lib\Qt5Guid.lib C:\Qt\5.9.2\msvc2017_64\lib\Qt5Cored.lib C:\Qt\5.9.2\msvc2017_64\lib\qtmaind.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  LINK_LIBRARIES = C:\Qt\5.9.2\msvc2017_64\lib\Qt5Widgets.lib C:\Qt\5.9.2\msvc2017_64\lib\Qt5Script.lib C:\Qt\5.9.2\msvc2017_64\lib\Qt5Gui.lib C:\Qt\5.9.2\msvc2017_64\lib\Qt5Core.lib C:\Qt\5.9.2\msvc2017_64\lib\qtmain.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
   OBJECT_DIR = CMakeFiles\Automat-komorkowy.dir
-  POST_BUILD = cmd.exe /C "cd /D "C:\Users\Tomek\Desktop\Notatnik\projekt Cmake\automat-komorkowy\build\Release_x64" && "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy_directory "C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/libraries" "C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/build/Release_x64""
+  POST_BUILD = cmd.exe /C "cd /D "C:\Users\Tomek\Desktop\Notatnik\projekt Cmake\automat-komorkowy\build\Release_x64" && C:\Qt\5.9.2\msvc2017_64\bin\windeployqt.exe "C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/build/Release_x64/Automat-komorkowy.exe""
   PRE_LINK = cd .
   TARGET_COMPILE_PDB = CMakeFiles\Automat-komorkowy.dir\
   TARGET_FILE = Automat-komorkowy.exe
@@ -143,7 +151,7 @@ build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 #############################################
 # Utility command for Automat-komorkowy_autogen
 
-build Automat-komorkowy_autogen: phony CMakeFiles\Automat-komorkowy_autogen Automat-komorkowy_autogen\mocs_compilation.cpp ui_Scope.h ui_Generate.h ui_GUI.h ui_FileSelect.h
+build Automat-komorkowy_autogen: phony CMakeFiles\Automat-komorkowy_autogen Automat-komorkowy_autogen\mocs_compilation.cpp ui_Scope.h ui_Generate.h ui_GUI.h ui_FileSelect.h qrc_GUI.cpp
 
 #############################################
 # Custom command for ui_Scope.h
@@ -178,11 +186,19 @@ build ui_FileSelect.h: CUSTOM_COMMAND ..\..\FileSelect.ui
   restat = 1
 
 #############################################
+# Custom command for qrc_GUI.cpp
+
+build qrc_GUI.cpp: CUSTOM_COMMAND ..\..\GUI.qrc
+  COMMAND = cmd.exe /C "cd /D "C:\Users\Tomek\Desktop\Notatnik\projekt Cmake\automat-komorkowy\build\Release_x64" && C:\Qt\5.9.2\msvc2017_64\bin\rcc.exe --name GUI --output "C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/build/Release_x64/qrc_GUI.cpp" "C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/GUI.qrc""
+  DESC = Generating qrc_GUI.cpp
+  restat = 1
+
+#############################################
 # Custom command for CMakeFiles\Automat-komorkowy_autogen
 
-build CMakeFiles\Automat-komorkowy_autogen Automat-komorkowy_autogen\mocs_compilation.cpp: CUSTOM_COMMAND C$:\Qt\5.9.2\msvc2017_64\bin\Qt5Widgetsd.dll C$:\Qt\5.9.2\msvc2017_64\bin\Qt5Scriptd.dll ui_Scope.h ui_Generate.h ui_GUI.h ui_FileSelect.h
-  COMMAND = cmd.exe /C "cd /D "C:\Users\Tomek\Desktop\Notatnik\projekt Cmake\automat-komorkowy\build\Release_x64" && "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E cmake_autogen "C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/build/Release_x64/CMakeFiles/Automat-komorkowy_autogen.dir" Debug"
-  DESC = Automatic MOC and RCC for target Automat-komorkowy
+build CMakeFiles\Automat-komorkowy_autogen Automat-komorkowy_autogen\mocs_compilation.cpp: CUSTOM_COMMAND C$:\Qt\5.9.2\msvc2017_64\bin\Qt5Widgets.dll C$:\Qt\5.9.2\msvc2017_64\bin\Qt5Script.dll ui_Scope.h ui_Generate.h ui_GUI.h ui_FileSelect.h qrc_GUI.cpp
+  COMMAND = cmd.exe /C "cd /D "C:\Users\Tomek\Desktop\Notatnik\projekt Cmake\automat-komorkowy\build\Release_x64" && "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E cmake_autogen "C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/build/Release_x64/CMakeFiles/Automat-komorkowy_autogen.dir" RelWithDebInfo"
+  DESC = Automatic MOC for target Automat-komorkowy
   restat = 1
 # =============================================================================
 # Target aliases.
@@ -231,7 +247,7 @@ ident13 = C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\
 ident14 = C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC.cmake
 ident15 = C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.9\Modules\Platform\Windows.cmake
 ident16 = C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.9\Modules\Platform\WindowsPaths.cmake
-build build.ninja: RERUN_CMAKE | ..\..\CMakeLists.txt $ident0 $ident1 $ident2 $ident3 $ident4 $ident5 $ident6 $ident7 $ident8 $ident9 $ident10 $ident11 $ident12 $ident13 $ident14 $ident15 $ident16 C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreMacros.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Script\Qt5ScriptConfig.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Script\Qt5ScriptConfigVersion.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake CMakeCache.txt CMakeFiles\3.9.0-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.9.0-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.9.0-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.9.0-MSVC_2\CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ..\..\CMakeLists.txt ..\..\GUI.qrc $ident0 $ident1 $ident2 $ident3 $ident4 $ident5 $ident6 $ident7 $ident8 $ident9 $ident10 $ident11 $ident12 $ident13 $ident14 $ident15 $ident16 C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreMacros.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Script\Qt5ScriptConfig.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Script\Qt5ScriptConfigVersion.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake CMakeCache.txt CMakeFiles\3.9.0-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.9.0-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.9.0-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.9.0-MSVC_2\CMakeSystem.cmake
   pool = console
 
 #############################################
@@ -254,7 +270,7 @@ ident30 = C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\
 ident31 = C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.9\Modules\Platform\Windows-MSVC.cmake
 ident32 = C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.9\Modules\Platform\Windows.cmake
 ident33 = C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.9\Modules\Platform\WindowsPaths.cmake
-build ..\..\CMakeLists.txt $ident17 $ident18 $ident19 $ident20 $ident21 $ident22 $ident23 $ident24 $ident25 $ident26 $ident27 $ident28 $ident29 $ident30 $ident31 $ident32 $ident33 C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreMacros.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Script\Qt5ScriptConfig.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Script\Qt5ScriptConfigVersion.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake CMakeCache.txt CMakeFiles\3.9.0-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.9.0-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.9.0-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.9.0-MSVC_2\CMakeSystem.cmake: phony
+build ..\..\CMakeLists.txt ..\..\GUI.qrc $ident17 $ident18 $ident19 $ident20 $ident21 $ident22 $ident23 $ident24 $ident25 $ident26 $ident27 $ident28 $ident29 $ident30 $ident31 $ident32 $ident33 C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Core\Qt5CoreMacros.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Script\Qt5ScriptConfig.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Script\Qt5ScriptConfigVersion.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake C$:\Qt\5.9.2\msvc2017_64\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake CMakeCache.txt CMakeFiles\3.9.0-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.9.0-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.9.0-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.9.0-MSVC_2\CMakeSystem.cmake: phony
 
 #############################################
 # Clean all the built files.

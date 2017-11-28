@@ -22,10 +22,10 @@ Automat-komorkowy_SOURCE_DIR:STATIC=C:/Users/Tomek/Desktop/Notatnik/projekt Cmak
 
 //Choose the type of build, options are: None(CMAKE_CXX_FLAGS or
 // CMAKE_C_FLAGS used) Debug Release RelWithDebInfo MinSizeRel.
-CMAKE_BUILD_TYPE:STRING=Debug
+CMAKE_BUILD_TYPE:STRING=RelWithDebInfo
 
-//No help, variable specified on the command line.
-CMAKE_CXX_COMPILER:UNINITIALIZED=cl.exe
+//CXX compiler
+CMAKE_CXX_COMPILER:STRING=C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.11.25503/bin/Hostx86/x64/cl.exe
 
 //Flags used by the compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=/DWIN32 /D_WINDOWS /W3 /GR /EHsc
@@ -46,8 +46,8 @@ CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=/MD /Zi /O2 /Ob1 /DNDEBUG
 //Libraries linked by default with all C++ applications.
 CMAKE_CXX_STANDARD_LIBRARIES:STRING=kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
 
-//No help, variable specified on the command line.
-CMAKE_C_COMPILER:UNINITIALIZED=cl.exe
+//C compiler
+CMAKE_C_COMPILER:STRING=C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.11.25503/bin/Hostx86/x64/cl.exe
 
 //Flags used by the compiler during all build types.
 CMAKE_C_FLAGS:STRING=/DWIN32 /D_WINDOWS /W3
@@ -87,7 +87,7 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
 CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=OFF
 
 //No help, variable specified on the command line.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/x64-Debug
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/x64-Release
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.11.25503/bin/Hostx86/x64/link.exe
@@ -190,6 +190,9 @@ Qt5Script_DIR:PATH=C:/Qt/5.9.2/msvc2017_64/lib/cmake/Qt5Script
 
 //The directory containing a CMake configuration file for Qt5Widgets.
 Qt5Widgets_DIR:PATH=C:/Qt/5.9.2/msvc2017_64/lib/cmake/Qt5Widgets
+
+//Path to a program.
+WINDEPLOYQT_EXECUTABLE:FILEPATH=C:/Qt/5.9.2/msvc2017_64/bin/windeployqt.exe
 
 
 ########################

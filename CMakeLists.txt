@@ -1,31 +1,36 @@
 cmake_minimum_required(VERSION 3.1)
 
 project(Automat-komorkowy)
+#Ustawienie zmiennej środowiskowej wskazującej na folder instalacji Qt
 set (CMAKE_PREFIX_PATH "C:\\Qt\\5.9.2\\msvc2017_64")
-# Find includes in corresponding build directories
+# Szukanie plików źródłowych w tym samym folderu
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-# Instruct CMake to run moc automatically when needed.
+# Kazanie Cmakeowi automatycznie zrobić pliki Moc
 set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
 
-# Find the QtWidgets library
+# Wyszukanie bibliotek na podstaiwe zmiennej środowiskowej
 find_package(Qt5Widgets)
 find_package(Qt5Script)
 
-
+#OBsługa plików ui i generowanie nadłowków do nich
 qt5_wrap_ui(uiheaders Scope.ui Generate.ui GUI.ui FileSelect.ui) 
+#obsluga rescources i generowanie .cpp dla nich
+qt5_add_resources(rescources GUI.qrc)
+#dodanie plików źródłowych do projektu
+set(cppsources Generate.cpp GUI.cpp Komorka.cpp Pole.cpp Scope.cpp Worker.cpp)
+#nagłowki
+set(hheaders Generate.h GUI.h Komorka.h Pole.h Scope.h Worker.h)
 
 # Tworzenie .exe
-add_executable(Automat-komorkowy WIN32 main.cpp ${uiheaders})
-target_sources(Automat-komorkowy PUBLIC Generate.cpp Generate.h GUI.cpp 
-	GUI.h Komorka.cpp Komorka.h Pole.cpp Pole.h Scope.cpp Scope.h Worker.cpp Worker.h )
+add_executable(Automat-komorkowy WIN32 main.cpp ${uiheaders} ${rescources} ${hheaders} ${cppsources})
 
-# Use the Widgets module from Qt 5.
+# Kazanie Cmakeowi uzyć bibliotek przy kompilacji
 target_link_libraries(Automat-komorkowy Qt5::Widgets)
 target_link_libraries(Automat-komorkowy Qt5::Script)
 
+# Uruchomianie windeployqt jesli znajdzie go, program szuka biblioteki runtime i kopiuje je do folderu z plikiem .exe
+if(WIN32) 
+find_program(WINDEPLOYQT_EXECUTABLE NAMES windeployqt HINTS ${QTDIR} ENV QTDIR PATH_SUFFIXES bin) 
 add_custom_command(TARGET Automat-komorkowy POST_BUILD 
-	COMMAND ${CMAKE_COMMAND} -E copy_directory
-	"${PROJECT_SOURCE_DIR}/libraries"
-    $<TARGET_FILE_DIR:Automat-komorkowy>)
-
+	COMMAND ${WINDEPLOYQT_EXECUTABLE} $<TARGET_FILE:Automat-komorkowy>) 
+	endif()

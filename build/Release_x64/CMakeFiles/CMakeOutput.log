@@ -51,33 +51,33 @@ The CXX compiler identification is MSVC, found in "C:/Users/Tomek/Desktop/Notatn
 Determining if the C compiler works passed with the following output:
 Change Dir: C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/build/Release_x64/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe" "cmTC_86de9"
-[1/2] Building C object CMakeFiles\cmTC_86de9.dir\testCCompiler.c.obj
-[2/2] Linking C executable cmTC_86de9.exe
+Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe" "cmTC_fa232"
+[1/2] Building C object CMakeFiles\cmTC_fa232.dir\testCCompiler.c.obj
+[2/2] Linking C executable cmTC_fa232.exe
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/build/Release_x64/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe" "cmTC_a34a5"
-[1/2] Building C object CMakeFiles\cmTC_a34a5.dir\CMakeCCompilerABI.c.obj
-[2/2] Linking C executable cmTC_a34a5.exe
+Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe" "cmTC_ca7fc"
+[1/2] Building C object CMakeFiles\cmTC_ca7fc.dir\CMakeCCompilerABI.c.obj
+[2/2] Linking C executable cmTC_ca7fc.exe
 
 
 Determining if the CXX compiler works passed with the following output:
 Change Dir: C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/build/Release_x64/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe" "cmTC_d9875"
-[1/2] Building CXX object CMakeFiles\cmTC_d9875.dir\testCXXCompiler.cxx.obj
-[2/2] Linking CXX executable cmTC_d9875.exe
+Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe" "cmTC_89f6f"
+[1/2] Building CXX object CMakeFiles\cmTC_89f6f.dir\testCXXCompiler.cxx.obj
+[2/2] Linking CXX executable cmTC_89f6f.exe
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/build/Release_x64/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe" "cmTC_46c50"
-[1/2] Building CXX object CMakeFiles\cmTC_46c50.dir\CMakeCXXCompilerABI.cpp.obj
-[2/2] Linking CXX executable cmTC_46c50.exe
+Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe" "cmTC_95ac0"
+[1/2] Building CXX object CMakeFiles\cmTC_95ac0.dir\CMakeCXXCompilerABI.cpp.obj
+[2/2] Linking CXX executable cmTC_95ac0.exe
 
 
 
@@ -85,9 +85,9 @@ Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICRO
 Detecting CXX [] compiler features compiled with the following output:
 Change Dir: C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/build/Release_x64/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe" "cmTC_016cf"
-[1/2] Building CXX object CMakeFiles\cmTC_016cf.dir\feature_tests.cxx.obj
-[2/2] Linking CXX executable cmTC_016cf.exe
+Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe" "cmTC_b9280"
+[1/2] Building CXX object CMakeFiles\cmTC_b9280.dir\feature_tests.cxx.obj
+[2/2] Linking CXX executable cmTC_b9280.exe
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -150,9 +150,9 @@ Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICRO
 Detecting CXX [] compiler features compiled with the following output:
 Change Dir: C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/build/Release_x64/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe" "cmTC_1adce"
-[1/2] Building CXX object CMakeFiles\cmTC_1adce.dir\feature_tests.cxx.obj
-[2/2] Linking CXX executable cmTC_1adce.exe
+Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe" "cmTC_84085"
+[1/2] Building CXX object CMakeFiles\cmTC_84085.dir\feature_tests.cxx.obj
+[2/2] Linking CXX executable cmTC_84085.exe
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -215,9 +215,9 @@ Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICRO
 Detecting CXX [] compiler features compiled with the following output:
 Change Dir: C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/build/Release_x64/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe" "cmTC_d05ad"
-[1/2] Building CXX object CMakeFiles\cmTC_d05ad.dir\feature_tests.cxx.obj
-[2/2] Linking CXX executable cmTC_d05ad.exe
+Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe" "cmTC_4d396"
+[1/2] Building CXX object CMakeFiles\cmTC_4d396.dir\feature_tests.cxx.obj
+[2/2] Linking CXX executable cmTC_4d396.exe
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -280,9 +280,9 @@ Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICRO
 Detecting CXX [] compiler features compiled with the following output:
 Change Dir: C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/build/Release_x64/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe" "cmTC_1cf66"
-[1/2] Building CXX object CMakeFiles\cmTC_1cf66.dir\feature_tests.cxx.obj
-[2/2] Linking CXX executable cmTC_1cf66.exe
+Run Build Command:"C:/PROGRA~2/MICROS~1/2017/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe" "cmTC_ed386"
+[1/2] Building CXX object CMakeFiles\cmTC_ed386.dir\feature_tests.cxx.obj
+[2/2] Linking CXX executable cmTC_ed386.exe
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
