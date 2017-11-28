@@ -41,6 +41,7 @@ private slots:
 	void Load();
 	void Step();
 	void Redraw();
+	void Redraw(int value);
 	void NewField();
 	void FieldFinished();
 	void Edit();

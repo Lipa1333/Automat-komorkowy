@@ -48,6 +48,8 @@ GUI::GUI(QWidget *parent)
 	ui.horizontalScrollBar->setTracking(true);
 	connect(ui.verticalScrollBar, SIGNAL(sliderReleased()), this, SLOT(Redraw()));
 	connect(ui.horizontalScrollBar, SIGNAL(sliderReleased()), this, SLOT(Redraw()));
+	connect(ui.verticalScrollBar, SIGNAL(valueChanged(int)), this, SLOT(Redraw(int)));
+	connect(ui.horizontalScrollBar, SIGNAL(valueChanged(int)), this, SLOT(Redraw(int)));
 	thread->start();
 	ui.SaveValueButton->setEnabled(false);
 }
@@ -56,7 +58,7 @@ void GUI::paintEvent(QPaintEvent *event)
 {
 	QString xCoord, yCoord;
 	QPainter painter;
-	if(Field != NULL)
+	if (Field != NULL)
 	{
 		uint32_t r, g, b, a, value;
 		r = g = b = a = 0;
@@ -121,6 +123,11 @@ void GUI::StopSimulation()
 }
 
 void GUI::Redraw()
+{
+	this->repaint();
+}
+
+void GUI::Redraw(int value)
 {
 	this->repaint();
 }
@@ -190,7 +197,7 @@ void GUI::FieldFinished()
 	{
 		for (int y = 0; y < Field->plansza.size(); y++)
 		{
-			Field->plansza[x][y].wartosci[0] = 0x000000FF + 10* x + 5 *y;
+			Field->plansza[x][y].wartosci[0] = 0x000000FF + 10 * x + 5 * y;
 		}
 	}
 	ui.SaveValueButton->setEnabled(true);
@@ -264,7 +271,7 @@ void GUI::LoadScript()
 	std::ifstream myReadFile;
 	myReadFile.open(fileName.toStdString());
 	if (myReadFile.is_open()) {
-		while (!myReadFile.eof()) 
+		while (!myReadFile.eof())
 		{
 			std::getline(myReadFile, tmp);
 			Script += tmp + "\n";
@@ -274,8 +281,3 @@ void GUI::LoadScript()
 
 	ui.ScriptText->document()->setPlainText(QString::fromStdString(Script));
 }
-
-/*
-int argc;
-QCoreApplication a(argc, NULL);
-*/
