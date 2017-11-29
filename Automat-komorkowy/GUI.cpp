@@ -272,7 +272,15 @@ void GUI::Edit()
 
 void GUI::ExecuteScript()
 {
+	if (program != NULL)
+	{
+		delete(program);
+	}
 	program = new QScriptProgram(ui.ScriptText->toPlainText());
+	if (engine != NULL)
+	{
+		delete(engine);
+	}
 	engine = new QScriptEngine();
 	QScriptSyntaxCheckResult res = engine->checkSyntax(ui.ScriptText->toPlainText());
 	switch (res.state())
