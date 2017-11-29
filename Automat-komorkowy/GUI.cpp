@@ -79,6 +79,23 @@ void GUI::paintEvent(QPaintEvent *event)
 					r = (value & 0xFF000000);
 					r = r >> 24;
 					painter.fillRect(110 + (32 * x), 10 + (32 * y), 32, 32, QColor(r, g, b, a));
+					if (Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].iloscWartosci >= 2)
+					{
+						r = g = b = a = 0;
+						value = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[1];
+						a = (value & 0x000000FF);
+						b = (value & 0x0000FF00);
+						b = b >> 8;
+						g = (value & 0x00FF0000);
+						g = g >> 16;
+						r = (value & 0xFF000000);
+						r = r >> 24;
+						painter.fillRect(110 + (32 * x), 10 + (32 * y), 5, 32, QColor(r, g, b, a));
+						painter.fillRect(110 + (32 * x) + 27, 10 + (32 * y), 5, 32, QColor(r, g, b, a));
+
+						painter.fillRect(110 + (32 * x) + 5, 10 + (32 * y), 22, 5, QColor(r, g, b, a));
+						painter.fillRect(110 + (32 * x) + 5, 10 + (32 * y) + 27, 22, 5, QColor(r, g, b, a));
+					}
 				}
 			}
 		}
@@ -97,6 +114,23 @@ void GUI::paintEvent(QPaintEvent *event)
 					r = (value & 0xFF000000);
 					r = r >> 24;
 					painter.fillRect(110 + (32 * x), 10 + (32 * y), 32, 32, QColor(r, g, b, a));
+					if (Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].iloscWartosci >= 2)
+					{
+						r = g = b = a = 0;
+						value = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[1];
+						a = (value & 0x000000FF);
+						b = (value & 0x0000FF00);
+						b = b >> 8;
+						g = (value & 0x00FF0000);
+						g = g >> 16;
+						r = (value & 0xFF000000);
+						r = r >> 24;
+						painter.fillRect(110 + (32 * x), 10 + (32 * y), 5, 32, QColor(r, g, b, a));
+						painter.fillRect(110 + (32 * x)+27, 10 + (32 * y), 5, 32, QColor(r, g, b, a));
+
+						painter.fillRect(110 + (32 * x), 10 + (32 * y), 32, 5, QColor(r, g, b, a));
+						painter.fillRect(110 + (32 * x), 10 + (32 * y) + 27, 32, 5, QColor(r, g, b, a));
+					}
 				}
 			}
 		}
