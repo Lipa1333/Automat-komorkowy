@@ -136,7 +136,6 @@ void Baza::wczytaj(string nazwa_pliku, Pole * pole)
 		cout << komorki << endl;
 
 		pole->rozmiar = rozmiar_int;
-		pole->iloscWartosci = iloscWartosci_int;
 		pole->czyMoorea = czyMoorea_bool;
 		pole->czyPrzeplywajace = czyPrzeplywajace_bool;
 
@@ -176,6 +175,7 @@ void Baza::wczytaj(string nazwa_pliku, Pole * pole)
 						pole->plansza[x][y].wartosc[z] = wartosc;
 					}
 					cout << endl;
+					pole->plansza[x][y].iloscWartosci = iloscWartosci_int;
 				}
 
 			}
