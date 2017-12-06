@@ -6,40 +6,41 @@
 class Komorka
 {
 public:
-	//dane wejsciowe ze skryptu :
-	// dla kazdej z komorek:
-	// ilosc wartosci i same wartosci
-	// zdefiniowane stany i ich warunki
-	// zdefiniowane dzialanie
 
-	bool czyAgent;
-
+	//!variable to check kind of boundary conditions
 	static bool czyPrzeplywajace;
 
+	//!Number of values
 	static int iloscWartosci;
 
+	//!Reference pointing to cells set
 	static class Pole * pole;
 
-	std::vector<float> wartosci;// wartosci o ktorych byla mowa
+	//!values that cell contains
+	std::vector<float> wartosci;
 
-	std::vector<float> przyszleWartosci;// wartosci o ktorych byla mowa
+	//!used to perform evolution
+	std::vector<float> przyszleWartosci;
 
+	//!position of cell
 	int x;
+
+	//!position of cell
 	int y;
 
-
+	//!set of cell's neighbors
 	std::vector<Komorka*> sasiedzi;
 
-	//brak interpretacji stanow- kazda komorka caly czas zyje
+	//!pointer to JavaScript function to perform script (evolution action)
+	static std::vector<float>(*dzialanie)(std::vector<float> v, std::vector<std::vector<float>> n,class  GUI * Window); 
 
-	static std::vector<float>(*dzialanie)(std::vector<float> v, std::vector<std::vector<float>> n,class  GUI * Window); // tymczasowe, wskaznik na funkcje ktora bedzie zapisana w skrypci
-
-
-
-	Komorka();
+	//!Main Constructor.Fills values with 0
 	Komorka(int y, int x);
+	
+	//!Default desctructor
 	~Komorka();
+
+	//!Function to fill references to neighbors
 	void ustalSasiadow();
-	Komorka operator=(const Komorka & v); //deprecated
 };
 
