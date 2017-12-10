@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "Pole.h"
 #include "GUI.h"
 #include <QtWidgets/QApplication>
@@ -40,6 +40,24 @@ std::vector<float>(*Komorka::dzialanie)(std::vector<float> v, std::vector<std::v
 
 bool Komorka::czyPrzeplywajace = false;
 
+
+/*! \mainpage Cellular Automata by : Łukasz Miros, Maciej Matejuk, Tomasz Krzyczkowski, Jakub Kopka, Hubert Murawski
+*
+* \section intro_sec Introduction
+*
+* Cellular Automata created for a academic project with ability to run custom scripts made in JavaScript.
+*
+*
+* \section features_sec Features
+*
+* Running custom made scripts 
+* Create sripts in JavaScript
+* Dynamic number of cells and values for each cell
+* Iterating over multiple stages
+*
+*
+*/
+
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
@@ -48,11 +66,3 @@ int main(int argc, char *argv[])
 	return a.exec();
 
 }
-
-
-/*
-TODO: 
-Enable evolution.
-Enable Coloring
-Enable Scrolling
-*/

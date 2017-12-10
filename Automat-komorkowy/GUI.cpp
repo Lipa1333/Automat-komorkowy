@@ -1,6 +1,7 @@
 ﻿#include "GUI.h"
 #include "Generate.h"
 #include "Scope.h"
+#include "Baza.h"
 #include <QFileDialog>
 #include <QWidget>
 #include <QPainter>
@@ -146,6 +147,7 @@ void GUI::StartSimulation()
 	ui.StopButton->setEnabled(true);
 	ui.StartButton->setEnabled(false);
 	ui.StepButton->setEnabled(false);
+	ui.LoadScriptButton->setEnabled(false);
 }
 
 void GUI::StopSimulation()
@@ -154,6 +156,7 @@ void GUI::StopSimulation()
 	ui.StopButton->setEnabled(false);
 	ui.StartButton->setEnabled(true);
 	ui.StepButton->setEnabled(true);
+	ui.LoadScriptButton->setEnabled(true);
 }
 
 void GUI::Redraw()
@@ -176,6 +179,7 @@ void GUI::Save()
 	QString fileName = QFileDialog::getSaveFileName(this,
 		tr("Save file"), "",
 		tr("Text file (*.txt);;All Files (*)"));
+	Baza::zapisz(fileName.toStdString(), *Field);
 }
 
 void GUI::Load()
@@ -183,6 +187,11 @@ void GUI::Load()
 	QString fileName = QFileDialog::getOpenFileName(this,
 		tr("Load file"), "",
 		tr("Text file (*.txt);;All Files (*)"));
+	if (Field != NULL)
+	{
+		delete(Field);
+	}
+	Baza::wczytaj(fileName.toStdString(), Field);
 }
 
 void GUI::NewField()
@@ -234,7 +243,9 @@ void GUI::FieldFinished()
 			Field->plansza[x][y].wartosci[0] = 0x000000FF + 10 * x + 5 * y;
 		}
 	}
+
 	ui.SaveValueButton->setEnabled(true);
+	ui.SaveButton->setEnabled(true);
 }
 
 void GUI::Edit()
