@@ -145,10 +145,11 @@ void Baza::wczytaj(string nazwa_pliku, Pole * pole)
 			string linia1;
 			int x = 0;
 			int y = 0;
+			int z = 0;
 			while (!plik.eof())
 			{
 				getline(plik, linia1); // np. Komorka_wartosci: [1,0]
-
+				/*
 				if (!linia1.empty())
 				{
 					Komorka k;
@@ -180,6 +181,41 @@ void Baza::wczytaj(string nazwa_pliku, Pole * pole)
 					y++;
 				}
 				x++;
+				*/
+				if (!linia1.empty())
+				{
+
+					linia1.erase(std::remove(linia1.begin(), linia1.end(), '\t'), linia1.end());
+					linia1 = linia1.substr(18);
+					linia1 = linia1.substr(1, linia1.length() - 2);
+
+					stringstream s2;
+					s2 << linia1;
+					double wartosc;
+					char przecinek;
+					cout << linia1 << "   Wartosci: ";
+
+
+					if (y > rozmiar_int - 1)
+					{
+						y = 0;
+						x++;
+					}
+					if (z > iloscWartosci_int - 1)
+					{
+						z = 0;
+					}
+					while (s2 >> wartosc)
+					{
+						cout << wartosc << " | " << x << ":" << y << ":" << z << "\t";
+						z++;
+						s2 >> przecinek;
+						pole->plansza[x][y].wartosc[z] = wartosc;
+					}
+					pole->plansza[x][y].iloscWartosci = iloscWartosci_int;
+					y++;
+					cout << endl;
+				}
 			}
 		}
 		plik.close();
