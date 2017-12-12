@@ -1,4 +1,0 @@
-C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/build/Release_x64/CMakeFiles/Automat-komorkowy.dir
-C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/build/Release_x64/CMakeFiles/edit_cache.dir
-C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/build/Release_x64/CMakeFiles/rebuild_cache.dir
-C:/Users/Tomek/Desktop/Notatnik/projekt Cmake/automat-komorkowy/build/Release_x64/CMakeFiles/Automat-komorkowy_autogen.dir
