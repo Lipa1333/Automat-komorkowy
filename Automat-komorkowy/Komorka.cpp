@@ -7,7 +7,6 @@ Komorka::Komorka(int y, int x)
 {
 	this->x = x;
 	this->y = y;
-	czyAgent = false;
 	this->iloscWartosci = iloscWartosci;
 	for (int i = 0; i < iloscWartosci; i++)
 	{
@@ -188,9 +187,9 @@ Komorka::~Komorka()
 
 }
 
+/*
 Komorka Komorka::operator=(const Komorka & v)
 {
-	this->czyAgent = v.czyAgent;
 	for (int i = 0; i < iloscWartosci; i++)
 	{
 		this->wartosci[i] = v.wartosci[i];
@@ -200,3 +199,4 @@ Komorka Komorka::operator=(const Komorka & v)
 
 	return *this;
 }
+*/

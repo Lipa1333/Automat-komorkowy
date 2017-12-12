@@ -21,6 +21,8 @@ public:
 	//!Default desctructor
 	~Pole();
 
+	bool czyPrzeplywajace;
+
 	//!Method to execute evolution
 	void wykonajTure(class GUI * Window);
 
