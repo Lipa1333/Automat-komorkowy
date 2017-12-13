@@ -175,9 +175,9 @@ void Baza::wczytaj(string nazwa_pliku, Pole * pole)
 					while (s2 >> wartosc)
 					{
 						cout << wartosc << " | " << x << ":" << y << ":" << z << "\t";
-						z++;
 						s2 >> przecinek;
 						pole->plansza[x][y].wartosc[z] = wartosc;
+						z++;
 					}
 					pole->plansza[x][y].iloscWartosci = iloscWartosci_int;
 					y++;
