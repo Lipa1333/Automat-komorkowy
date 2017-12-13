@@ -67,7 +67,7 @@ void Baza::zapisz(string nazwa_pliku, Pole pole)
 		plik << "Informacje:" << endl;
 		plik << "\trozmiar: " << pole.rozmiar;
 		plik << endl;
-		plik << "\tiloscWartosci: " << pole.plansza[0][0].iloscWartosci; // Pobieram iloÅ›Ä‡ wartoÅ›ci z pierwszej(zerowej) komÃ³rki w vektorze
+		plik << "\tiloscWartosci: " << pole.plansza[0][0].iloscWartosci; // Pobieram iloœæ wartoœci z pierwszej(zerowej) komórki w vektorze
 		plik << endl;
 		plik << "\tczyMoorea: " << pole.czyMoorea;
 		plik << endl;
@@ -135,11 +135,11 @@ void Baza::wczytaj(string nazwa_pliku, Pole * pole)
 		getline(plik, komorki); // 7 linia
 		cout << komorki << endl;
 
-		pole->rozmiar = rozmiar_int;
-		pole->czyMoorea = czyMoorea_bool;
-		pole->czyPrzeplywajace = czyPrzeplywajace_bool;
+		//pole->rozmiar = rozmiar_int;
+		//pole->czyMoorea = czyMoorea_bool;
+		//pole->czyPrzeplywajace = czyPrzeplywajace_bool;
 
-
+		pole = new Pole(rozmiar_int, czyMoorea_bool, iloscWartosci_int, czyPrzeplywajace_bool);
 		if (komorki == "Komorki:")
 		{
 			string linia1;
@@ -149,39 +149,6 @@ void Baza::wczytaj(string nazwa_pliku, Pole * pole)
 			while (!plik.eof())
 			{
 				getline(plik, linia1); // np. Komorka_wartosci: [1,0]
-				/*
-				if (!linia1.empty())
-				{
-					Komorka k;
-
-					linia1.erase(std::remove(linia1.begin(), linia1.end(), '\t'), linia1.end());
-					linia1 = linia1.substr(18);
-					linia1 = linia1.substr(1, linia1.length() - 2);
-
-					stringstream s2;
-					s2 << linia1;
-					double wartosc;
-					char przecinek;
-					cout << linia1 << "   Wartosci: ";
-
-					int z = 0;
-					if (y == rozmiar_int - 1)
-					{
-						y = 0;
-					}
-					while (s2 >> wartosc)
-					{
-						cout << wartosc << " | ";
-						s2 >> przecinek;
-						pole->plansza[x][y].wartosc[z] = wartosc;
-						z++;
-					}
-					cout << endl;
-					pole->plansza[x][y].iloscWartosci = iloscWartosci_int;
-					y++;
-				}
-				x++;
-				*/
 				if (!linia1.empty())
 				{
 
@@ -208,10 +175,9 @@ void Baza::wczytaj(string nazwa_pliku, Pole * pole)
 					while (s2 >> wartosc)
 					{
 						cout << wartosc << " | " << x << ":" << y << ":" << z << "\t";
-					
+						z++;
 						s2 >> przecinek;
 						pole->plansza[x][y].wartosc[z] = wartosc;
-						z++;
 					}
 					pole->plansza[x][y].iloscWartosci = iloscWartosci_int;
 					y++;
@@ -220,8 +186,6 @@ void Baza::wczytaj(string nazwa_pliku, Pole * pole)
 			}
 		}
 		plik.close();
-
-
 
 	}
 	else
