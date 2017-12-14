@@ -22,17 +22,7 @@ Pole::Pole(int rozmiar = 10, bool czyMoorea = true, int iloscWartosci = 1, bool 
 		}
 		plansza.push_back(tmp);
 	}
-	/*
-	for (int y = 0; y < rozmiar; y++)
-	{
-		for (int x = 0; x < rozmiar; x++)
-		{
-			plansza[y][x].x = x;
-			plansza[y][x].y = y;
 
-		}
-	}
-	*/
 	for (int y = 0; y < rozmiar; y++)
 	{
 		for (int x = 0; x < rozmiar; x++)

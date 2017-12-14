@@ -192,6 +192,21 @@ void GUI::Load()
 		delete(Field);
 	}
 	Baza::wczytaj(fileName.toStdString(), Field);
+	if (Field->plansza.size() >= 12)
+	{
+		oversized = true;
+		ui.verticalScrollBar->setMaximum(Field->plansza.size() - 12);
+		ui.horizontalScrollBar->setMaximum(Field->plansza.size() - 12);
+
+	}
+	else
+	{
+		oversized = false;
+	}
+	this->Redraw();
+	ui.SaveValueButton->setEnabled(true);
+	ui.SaveButton->setEnabled(true);
+	ui.StartButton->setEnabled(true);
 }
 
 void GUI::NewField()
