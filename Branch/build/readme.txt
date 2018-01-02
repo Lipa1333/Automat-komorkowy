@@ -1,1 +1,0 @@
-cos by nie usunelo folderu build na githubie
