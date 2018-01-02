@@ -11,10 +11,13 @@ class Scope : public QMainWindow
 
 public:
 	Scope(QWidget *parent = Q_NULLPTR, Pole * input = NULL);
+	//! Variable containing pointer to Field
 	Pole * Field;
 
 private slots:
+	//! Function showing values of the cell
 	void ShowCell();
+	//! Function closing a scope
 	void CloseMe();
 
 signals:

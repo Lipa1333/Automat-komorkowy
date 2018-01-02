@@ -3,26 +3,36 @@
 #include "Komorka.h"
 class Pole
 {
-	// warunki brzegowe - przeplywajace lub krancowe
-
-	//PRYPOMINAM ZE JEST TO IV CWIARTKA UKLADU WSPOLRZEDNYCH
-
-	//ewolucja = tura
-	//
-
+	
 public:
-	int rozmiar;
-	bool czyMoorea;
-	bool czyPrzeplywajace;
-	std::vector<std::vector<class Komorka>> plansza; // UTILITY. to trzeba bedzie zapisac do pliku
 
+	//!Variable to contain information about size of set
+	int rozmiar;
+
+	//!Contains information about neighbourhood
+	bool czyMoorea;
+
+	//!Real set of Cells
+	std::vector<std::vector<class Komorka>> plansza;
+
+	//!Main Constructor
 	Pole(int rozmiar, bool czyMoorea, int iloscWartosci, bool czyPrzeplywajace);
+
+	//!Default desctructor
 	~Pole();
 
+	bool czyPrzeplywajace;
+
+	//!Method to execute evolution
 	void wykonajTure(class GUI * Window);
+
+	//!Method to edit Cell
 	void wprowadzKomorke(int x, int y, std::vector<float> wartosci);
 
+	//!First part of the evolution
 	void wykonajTurePrzejsciePierwsze(class GUI * Window);
+
+	//!Second part of the evolution
 	void wykonajTurePrzejscieDrugie();
 
 };

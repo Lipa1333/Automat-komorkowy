@@ -1,6 +1,7 @@
 ﻿#include "GUI.h"
 #include "Generate.h"
 #include "Scope.h"
+#include "Baza.h"
 #include <QFileDialog>
 #include <QWidget>
 #include <QPainter>
@@ -48,6 +49,8 @@ GUI::GUI(QWidget *parent)
 	ui.horizontalScrollBar->setTracking(true);
 	connect(ui.verticalScrollBar, SIGNAL(sliderReleased()), this, SLOT(Redraw()));
 	connect(ui.horizontalScrollBar, SIGNAL(sliderReleased()), this, SLOT(Redraw()));
+	connect(ui.verticalScrollBar, SIGNAL(valueChanged(int)), this, SLOT(Redraw(int)));
+	connect(ui.horizontalScrollBar, SIGNAL(valueChanged(int)), this, SLOT(Redraw(int)));
 	thread->start();
 	ui.SaveValueButton->setEnabled(false);
 }
@@ -56,7 +59,7 @@ void GUI::paintEvent(QPaintEvent *event)
 {
 	QString xCoord, yCoord;
 	QPainter painter;
-	if(Field != NULL)
+	if (Field != NULL)
 	{
 		uint32_t r, g, b, a, value;
 		r = g = b = a = 0;
@@ -77,6 +80,23 @@ void GUI::paintEvent(QPaintEvent *event)
 					r = (value & 0xFF000000);
 					r = r >> 24;
 					painter.fillRect(110 + (32 * x), 10 + (32 * y), 32, 32, QColor(r, g, b, a));
+					if (Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].iloscWartosci >= 2)
+					{
+						r = g = b = a = 0;
+						value = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[1];
+						a = (value & 0x000000FF);
+						b = (value & 0x0000FF00);
+						b = b >> 8;
+						g = (value & 0x00FF0000);
+						g = g >> 16;
+						r = (value & 0xFF000000);
+						r = r >> 24;
+						painter.fillRect(110 + (32 * x), 10 + (32 * y), 5, 32, QColor(r, g, b, a));
+						painter.fillRect(110 + (32 * x) + 27, 10 + (32 * y), 5, 32, QColor(r, g, b, a));
+
+						painter.fillRect(110 + (32 * x) + 5, 10 + (32 * y), 22, 5, QColor(r, g, b, a));
+						painter.fillRect(110 + (32 * x) + 5, 10 + (32 * y) + 27, 22, 5, QColor(r, g, b, a));
+					}
 				}
 			}
 		}
@@ -95,6 +115,23 @@ void GUI::paintEvent(QPaintEvent *event)
 					r = (value & 0xFF000000);
 					r = r >> 24;
 					painter.fillRect(110 + (32 * x), 10 + (32 * y), 32, 32, QColor(r, g, b, a));
+					if (Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].iloscWartosci >= 2)
+					{
+						r = g = b = a = 0;
+						value = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[1];
+						a = (value & 0x000000FF);
+						b = (value & 0x0000FF00);
+						b = b >> 8;
+						g = (value & 0x00FF0000);
+						g = g >> 16;
+						r = (value & 0xFF000000);
+						r = r >> 24;
+						painter.fillRect(110 + (32 * x), 10 + (32 * y), 5, 32, QColor(r, g, b, a));
+						painter.fillRect(110 + (32 * x)+27, 10 + (32 * y), 5, 32, QColor(r, g, b, a));
+
+						painter.fillRect(110 + (32 * x), 10 + (32 * y), 32, 5, QColor(r, g, b, a));
+						painter.fillRect(110 + (32 * x), 10 + (32 * y) + 27, 32, 5, QColor(r, g, b, a));
+					}
 				}
 			}
 		}
@@ -110,6 +147,7 @@ void GUI::StartSimulation()
 	ui.StopButton->setEnabled(true);
 	ui.StartButton->setEnabled(false);
 	ui.StepButton->setEnabled(false);
+	ui.LoadScriptButton->setEnabled(false);
 }
 
 void GUI::StopSimulation()
@@ -118,9 +156,15 @@ void GUI::StopSimulation()
 	ui.StopButton->setEnabled(false);
 	ui.StartButton->setEnabled(true);
 	ui.StepButton->setEnabled(true);
+	ui.LoadScriptButton->setEnabled(true);
 }
 
 void GUI::Redraw()
+{
+	this->repaint();
+}
+
+void GUI::Redraw(int value)
 {
 	this->repaint();
 }
@@ -135,6 +179,7 @@ void GUI::Save()
 	QString fileName = QFileDialog::getSaveFileName(this,
 		tr("Save file"), "",
 		tr("Text file (*.txt);;All Files (*)"));
+	Baza::zapisz(fileName.toStdString(), *Field);
 }
 
 void GUI::Load()
@@ -142,6 +187,26 @@ void GUI::Load()
 	QString fileName = QFileDialog::getOpenFileName(this,
 		tr("Load file"), "",
 		tr("Text file (*.txt);;All Files (*)"));
+	if (Field != NULL)
+	{
+		delete(Field);
+	}
+	Baza::wczytaj(fileName.toStdString(), Field);
+	if (Field->plansza.size() >= 12)
+	{
+		oversized = true;
+		ui.verticalScrollBar->setMaximum(Field->plansza.size() - 12);
+		ui.horizontalScrollBar->setMaximum(Field->plansza.size() - 12);
+
+	}
+	else
+	{
+		oversized = false;
+	}
+	this->Redraw();
+	ui.SaveValueButton->setEnabled(true);
+	ui.SaveButton->setEnabled(true);
+	ui.StartButton->setEnabled(true);
 }
 
 void GUI::NewField()
@@ -190,10 +255,12 @@ void GUI::FieldFinished()
 	{
 		for (int y = 0; y < Field->plansza.size(); y++)
 		{
-			Field->plansza[x][y].wartosci[0] = 0x000000FF + 10* x + 5 *y;
+			Field->plansza[x][y].wartosci[0] = 0x000000FF + 10 * x + 5 * y;
 		}
 	}
+
 	ui.SaveValueButton->setEnabled(true);
+	ui.SaveButton->setEnabled(true);
 }
 
 void GUI::Edit()
@@ -231,7 +298,15 @@ void GUI::Edit()
 
 void GUI::ExecuteScript()
 {
+	if (program != NULL)
+	{
+		delete(program);
+	}
 	program = new QScriptProgram(ui.ScriptText->toPlainText());
+	if (engine != NULL)
+	{
+		delete(engine);
+	}
 	engine = new QScriptEngine();
 	QScriptSyntaxCheckResult res = engine->checkSyntax(ui.ScriptText->toPlainText());
 	switch (res.state())
@@ -264,7 +339,7 @@ void GUI::LoadScript()
 	std::ifstream myReadFile;
 	myReadFile.open(fileName.toStdString());
 	if (myReadFile.is_open()) {
-		while (!myReadFile.eof()) 
+		while (!myReadFile.eof())
 		{
 			std::getline(myReadFile, tmp);
 			Script += tmp + "\n";
@@ -274,8 +349,3 @@ void GUI::LoadScript()
 
 	ui.ScriptText->document()->setPlainText(QString::fromStdString(Script));
 }
-
-/*
-int argc;
-QCoreApplication a(argc, NULL);
-*/
