@@ -43,6 +43,8 @@ GUI::GUI(QWidget *parent)
 	connect(ui.ScopeButton, SIGNAL(released()), this, SLOT(NewScope()));
 	connect(ui.LoadScriptButton, SIGNAL(released()), this, SLOT(LoadScript()));
 	connect(ui.SaveScriptButton, SIGNAL(released()), this, SLOT(ExecuteScript()));
+	connect(ui.NextIncButton, SIGNAL(released()), this, SLOT(NextInc()));
+	connect(ui.PrevIncButton, SIGNAL(released()), this, SLOT(PrevInc()));
 	connect(worker, SIGNAL(finished()), this, SLOT(Redraw()));
 	connect(thread, SIGNAL(started()), worker, SLOT(process()));
 	ui.verticalScrollBar->setTracking(true);
@@ -53,6 +55,11 @@ GUI::GUI(QWidget *parent)
 	connect(ui.horizontalScrollBar, SIGNAL(valueChanged(int)), this, SLOT(Redraw(int)));
 	thread->start();
 	ui.SaveValueButton->setEnabled(false);
+}
+
+GUI::~GUI()
+{
+	thread->terminate();
 }
 
 void GUI::paintEvent(QPaintEvent *event)
@@ -136,6 +143,13 @@ void GUI::paintEvent(QPaintEvent *event)
 			}
 		}
 	}
+
+	if (ui.StepSaveButton->checkState())
+	{
+		string name = std::to_string(incrementation) + ".txt";
+		Baza::zapisz(name, *Field);
+		incrementation++;
+	}
 	QWidget::paintEvent(event);
 	painter.end();
 	ready = true;
@@ -192,6 +206,49 @@ void GUI::Load()
 		delete(Field);
 	}
 	Baza::wczytaj(fileName.toStdString(), Field);
+
+	string name = path = fileName.toStdString();
+	name.resize(name.find("."));
+	name = name.substr(name.find_last_of("/") + 1);
+
+	char* p;
+	strtol(name.c_str(), &p, 10);
+
+	if (*p == 0)
+	{
+		incrementation = stoi(name);
+		string pathToFile = path;
+		string extenstion = pathToFile.substr(path.find_last_of("."));
+		pathToFile = pathToFile.substr(0,pathToFile.find_last_of("/")+1);
+
+		if (incrementation == 0)
+		{
+			string fileExists = pathToFile + std::to_string(incrementation + 1) + extenstion;
+			ifstream f(fileExists.c_str());
+			if (f.good())
+			{
+				ui.NextIncButton->setEnabled(true);
+			}
+		}
+		else
+		{
+			string fileExists = pathToFile + std::to_string(incrementation + 1) + extenstion;
+			ifstream f(fileExists.c_str());
+			if (f.good())
+			{
+				ui.NextIncButton->setEnabled(true);
+			}
+
+			fileExists = pathToFile + std::to_string(incrementation - 1) + extenstion;
+			ifstream g(fileExists.c_str());
+			if (g.good())
+			{
+				ui.PrevIncButton->setEnabled(true);
+			}
+		}
+
+	}
+
 	if (Field->plansza.size() >= 12)
 	{
 		oversized = true;
@@ -348,4 +405,39 @@ void GUI::LoadScript()
 	myReadFile.close();
 
 	ui.ScriptText->document()->setPlainText(QString::fromStdString(Script));
+}
+
+void GUI::PrevInc()
+{
+	string pathToFile = path;
+	string extenstion = pathToFile.substr(path.find_last_of("."));
+	pathToFile = pathToFile.substr(0, pathToFile.find_last_of("/") + 1);
+	incrementation--;
+	Baza::wczytaj(pathToFile + std::to_string(incrementation) + extenstion, Field);
+
+	string fileExists = pathToFile + std::to_string(incrementation - 1) + extenstion;
+	ifstream f(fileExists.c_str());
+	if (!f.good())
+	{
+		ui.PrevIncButton->setEnabled(false);
+	}
+	ui.NextIncButton->setEnabled(true);
+
+}
+
+void GUI::NextInc()
+{
+	string pathToFile = path;
+	string extenstion = pathToFile.substr(path.find_last_of("."));
+	pathToFile = pathToFile.substr(0, pathToFile.find_last_of("/") + 1);
+	incrementation++;
+	Baza::wczytaj(pathToFile + std::to_string(incrementation) + extenstion, Field);
+
+	string fileExists = pathToFile + std::to_string(incrementation + 1) + extenstion;
+	ifstream f(fileExists.c_str());
+	if (!f.good())
+	{
+		ui.NextIncButton->setEnabled(false);
+	}
+	ui.PrevIncButton->setEnabled(true);
 }

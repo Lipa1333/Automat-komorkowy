@@ -47,6 +47,9 @@
     <ClCompile Include="Scope.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Baza.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Resource Files">
@@ -122,6 +125,9 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_Scope.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Baza.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -15,7 +15,7 @@ class GUI : public QMainWindow
 
 public:
 	GUI(QWidget *parent = Q_NULLPTR);
-
+	~GUI();
 	void paintEvent(QPaintEvent *event);
 
 	//! Variable controling simulation process
@@ -26,6 +26,10 @@ public:
 	bool ready = true;
 	//! Variable for defining type of visualization
 	bool oversized = false;
+	//! Represents number of incrementation
+	int incrementation = 0;
+	//! Represents string to other incrementations
+	std::string path;
 
 	QScriptEngine * engine = NULL;
 	QScriptProgram * program = NULL;
@@ -65,6 +69,10 @@ private slots:
 	void NewScope();
 	//! Function ending visualization of values in the cell
 	void KillScope();
+	//! Function calling load for prev table
+	void PrevInc();
+	//! Function calling load for next table
+	void NextInc();
 
 private:
 	Ui::GUIClass ui;
