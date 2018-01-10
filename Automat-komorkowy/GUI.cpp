@@ -266,9 +266,14 @@ void GUI::Load()
 		oversized = false;
 	}
 	this->Redraw();
+	if (Field != NULL && engine != NULL && program != NULL)
+	{
+		ui.StartButton->setEnabled(true);
+		ui.StepButton->setEnabled(true);
+	}
 	ui.SaveValueButton->setEnabled(true);
 	ui.SaveButton->setEnabled(true);
-	ui.StartButton->setEnabled(true);
+	worker->Field = Field;
 }
 
 void GUI::NewField()
@@ -381,9 +386,11 @@ void GUI::ExecuteScript()
 		break;
 	case 2:
 		ui.ScriptLabel->setText("Script Status: Correct");
-		ui.StepButton->setEnabled(true);
-		ui.StartButton->setEnabled(true);
-		ui.SaveButton->setEnabled(true);
+		if (Field != NULL && engine != NULL && program != NULL)
+		{
+			ui.StartButton->setEnabled(true);
+			ui.StepButton->setEnabled(true);
+		}
 		break;
 
 	default:
