@@ -193,6 +193,8 @@ void GUI::Save()
 	QString fileName = QFileDialog::getSaveFileName(this,
 		tr("Save file"), "",
 		tr("Text file (*.txt);;All Files (*)"));
+
+	if (fileName.isEmpty()) return;
 	Baza::zapisz(fileName.toStdString(), *Field);
 }
 
@@ -201,6 +203,9 @@ void GUI::Load()
 	QString fileName = QFileDialog::getOpenFileName(this,
 		tr("Load file"), "",
 		tr("Text file (*.txt);;All Files (*)"));
+
+	if (fileName.isEmpty()) return;
+
 	if (Field != NULL)
 	{
 		delete(Field);
