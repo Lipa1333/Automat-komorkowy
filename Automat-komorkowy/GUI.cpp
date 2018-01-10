@@ -434,6 +434,7 @@ void GUI::PrevInc()
 		ui.PrevIncButton->setEnabled(false);
 	}
 	ui.NextIncButton->setEnabled(true);
+	Redraw()
 
 }
 
@@ -452,4 +453,5 @@ void GUI::NextInc()
 		ui.NextIncButton->setEnabled(false);
 	}
 	ui.PrevIncButton->setEnabled(true);
+	Redraw()
 }
