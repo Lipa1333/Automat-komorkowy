@@ -162,6 +162,7 @@ void GUI::StartSimulation()
 	ui.StartButton->setEnabled(false);
 	ui.StepButton->setEnabled(false);
 	ui.LoadScriptButton->setEnabled(false);
+	ui.SaveScriptButton->setEnabled(false);
 }
 
 void GUI::StopSimulation()
@@ -171,6 +172,7 @@ void GUI::StopSimulation()
 	ui.StartButton->setEnabled(true);
 	ui.StepButton->setEnabled(true);
 	ui.LoadScriptButton->setEnabled(true);
+	ui.SaveScriptButton->setEnabled(true);
 }
 
 void GUI::Redraw()
@@ -434,7 +436,7 @@ void GUI::PrevInc()
 		ui.PrevIncButton->setEnabled(false);
 	}
 	ui.NextIncButton->setEnabled(true);
-	Redraw()
+	Redraw();
 
 }
 
@@ -453,5 +455,5 @@ void GUI::NextInc()
 		ui.NextIncButton->setEnabled(false);
 	}
 	ui.PrevIncButton->setEnabled(true);
-	Redraw()
+	Redraw();
 }
