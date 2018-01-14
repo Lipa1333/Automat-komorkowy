@@ -1,4 +1,5 @@
 ﻿#include "GUI.h"
+#include "Configure.h"
 #include "Generate.h"
 #include "Scope.h"
 #include "Baza.h"
@@ -53,8 +54,16 @@ GUI::GUI(QWidget *parent)
 	connect(ui.horizontalScrollBar, SIGNAL(sliderReleased()), this, SLOT(Redraw()));
 	connect(ui.verticalScrollBar, SIGNAL(valueChanged(int)), this, SLOT(Redraw(int)));
 	connect(ui.horizontalScrollBar, SIGNAL(valueChanged(int)), this, SLOT(Redraw(int)));
+	connect(ui.ConfigButton, SIGNAL(released()), this, SLOT(BeginConfig()));
+	connect(ConfigureWindow, SIGNAL(finished()), this, SLOT(FinishConfig()));
 	thread->start();
 	ui.SaveValueButton->setEnabled(false);
+	ui.ConfigButton->setEnabled(false);
+	
+	for (int i = 0; i < 6; i++)
+	{
+		Colors[i] = 0;
+	}
 }
 
 GUI::~GUI()
@@ -69,7 +78,7 @@ void GUI::paintEvent(QPaintEvent *event)
 	if (Field != NULL)
 	{
 		uint32_t r, g, b, a, value;
-		r = g = b = a = 0;
+		r = g = b = 0;
 		int tmp = ui.horizontalScrollBar->value();
 		painter.begin(this);
 		if (oversized)
@@ -78,32 +87,52 @@ void GUI::paintEvent(QPaintEvent *event)
 			{
 				for (int y = 0; y <= 11; y++)
 				{
-					value = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[0];
-					a = (value & 0x000000FF);
-					b = (value & 0x0000FF00);
-					b = b >> 8;
-					g = (value & 0x00FF0000);
-					g = g >> 16;
-					r = (value & 0xFF000000);
-					r = r >> 24;
-					painter.fillRect(110 + (32 * x), 10 + (32 * y), 32, 32, QColor(r, g, b, a));
-					if (Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].iloscWartosci >= 2)
+					// Make filling
+					if (Colors[0] >= 0)
 					{
-						r = g = b = a = 0;
-						value = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[1];
-						a = (value & 0x000000FF);
-						b = (value & 0x0000FF00);
-						b = b >> 8;
-						g = (value & 0x00FF0000);
-						g = g >> 16;
-						r = (value & 0xFF000000);
-						r = r >> 24;
-						painter.fillRect(110 + (32 * x), 10 + (32 * y), 5, 32, QColor(r, g, b, a));
-						painter.fillRect(110 + (32 * x) + 27, 10 + (32 * y), 5, 32, QColor(r, g, b, a));
-
-						painter.fillRect(110 + (32 * x) + 5, 10 + (32 * y), 22, 5, QColor(r, g, b, a));
-						painter.fillRect(110 + (32 * x) + 5, 10 + (32 * y) + 27, 22, 5, QColor(r, g, b, a));
+						r = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[Colors[0]];
 					}
+					else r = 0;
+
+					if (Colors[1] >= 0)
+					{
+						g = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[Colors[1]];
+					}
+					else g = 0;
+
+					if (Colors[2] >= 0)
+					{
+						b = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[Colors[2]];
+					}
+					else b = 0;
+
+					painter.fillRect(110 + (32 * x), 10 + (32 * y), 32, 32, QColor(r, g, b, 255));
+					r = g = b = 0;
+					// Make borders
+					if (Colors[3] >= 0)
+					{
+						r = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[Colors[4]];
+					}
+					else r = 0;
+
+					if (Colors[4] >= 0)
+					{
+						g = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[Colors[5]];
+					}
+					else g = 0;
+
+					if (Colors[5] >= 0)
+					{
+						b = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[Colors[6]];
+					}
+					else b = 0;
+
+					painter.fillRect(110 + (32 * x), 10 + (32 * y), 5, 32, QColor(r, g, b, 255));
+					painter.fillRect(110 + (32 * x) + 27, 10 + (32 * y), 5, 32, QColor(r, g, b, 255));
+
+					painter.fillRect(110 + (32 * x) + 5, 10 + (32 * y), 22, 5, QColor(r, g, b, 255));
+					painter.fillRect(110 + (32 * x) + 5, 10 + (32 * y) + 27, 22, 5, QColor(r, g, b, 255));
+					r = g = b = 0;
 				}
 			}
 		}
@@ -113,32 +142,51 @@ void GUI::paintEvent(QPaintEvent *event)
 			{
 				for (int y = 0; y < Field->rozmiar; y++)
 				{
-					value = Field->plansza[x][y].wartosci[0];
-					a = (value & 0x000000FF);
-					b = (value & 0x0000FF00);
-					b = b >> 8;
-					g = (value & 0x00FF0000);
-					g = g >> 16;
-					r = (value & 0xFF000000);
-					r = r >> 24;
-					painter.fillRect(110 + (32 * x), 10 + (32 * y), 32, 32, QColor(r, g, b, a));
-					if (Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].iloscWartosci >= 2)
+					// Make filling
+					if (Colors[0] >= 0)
 					{
-						r = g = b = a = 0;
-						value = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[1];
-						a = (value & 0x000000FF);
-						b = (value & 0x0000FF00);
-						b = b >> 8;
-						g = (value & 0x00FF0000);
-						g = g >> 16;
-						r = (value & 0xFF000000);
-						r = r >> 24;
-						painter.fillRect(110 + (32 * x), 10 + (32 * y), 5, 32, QColor(r, g, b, a));
-						painter.fillRect(110 + (32 * x)+27, 10 + (32 * y), 5, 32, QColor(r, g, b, a));
-
-						painter.fillRect(110 + (32 * x), 10 + (32 * y), 32, 5, QColor(r, g, b, a));
-						painter.fillRect(110 + (32 * x), 10 + (32 * y) + 27, 32, 5, QColor(r, g, b, a));
+						r = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[Colors[0]];
 					}
+					else r = 0;
+
+					if (Colors[1] >= 0)
+					{
+						g = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[Colors[1]];
+					}
+					else g = 0;
+
+					if (Colors[2] >= 0)
+					{
+						b = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[Colors[2]];
+					}
+					else b = 0;
+					painter.fillRect(110 + (32 * x), 10 + (32 * y), 32, 32, QColor(r, g, b, 255));
+					r = g = b = 0;
+					// Make borders
+					if (Colors[3] >= 0)
+					{
+						r = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[Colors[3]];
+					}
+					else r = 0;
+
+					if (Colors[4] >= 0)
+					{
+						g = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[Colors[4]];
+					}
+					else g = 0;
+
+					if (Colors[5] >= 0)
+					{
+						b = Field->plansza[x + ui.horizontalScrollBar->value()][y + ui.verticalScrollBar->value()].wartosci[Colors[5]];
+					}
+					else b = 0;
+
+					painter.fillRect(110 + (32 * x), 10 + (32 * y), 5, 32, QColor(r, g, b, 255));
+					painter.fillRect(110 + (32 * x)+27, 10 + (32 * y), 5, 32, QColor(r, g, b, 255));
+
+					painter.fillRect(110 + (32 * x), 10 + (32 * y), 32, 5, QColor(r, g, b, 255));
+					painter.fillRect(110 + (32 * x), 10 + (32 * y) + 27, 32, 5, QColor(r, g, b, 255));
+					r = g = b = 0;
 				}
 			}
 		}
@@ -320,16 +368,9 @@ void GUI::FieldFinished()
 		oversized = false;
 	}
 
-	for (int x = 0; x < Field->plansza.size(); x++)
-	{
-		for (int y = 0; y < Field->plansza.size(); y++)
-		{
-			Field->plansza[x][y].wartosci[0] = 0x000000FF + 10 * x + 5 * y;
-		}
-	}
-
 	ui.SaveValueButton->setEnabled(true);
 	ui.SaveButton->setEnabled(true);
+	ui.ConfigButton->setEnabled(true);
 }
 
 void GUI::Edit()
@@ -456,4 +497,22 @@ void GUI::NextInc()
 	}
 	ui.PrevIncButton->setEnabled(true);
 	Redraw();
+}
+
+void GUI::BeginConfig()
+{
+	ConfigureWindow = new Configure(this);
+	connect(ConfigureWindow, SIGNAL(finish()), this, SLOT(FinishConfig()));
+	ConfigureWindow->show();
+}
+
+void GUI::FinishConfig()
+{
+	for (int i = 0; i < 6; i++)
+	{
+		Colors[i] = ConfigureWindow->Colors[i];
+		if (Colors[i] >= this->Field->plansza[0][0].iloscWartosci) Colors[i] = -1;
+	}
+	ConfigureWindow->close();
+	delete(ConfigureWindow);
 }

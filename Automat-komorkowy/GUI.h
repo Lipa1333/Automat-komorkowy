@@ -8,6 +8,7 @@
 #include "Pole.h"
 #include "Generate.h"
 #include "Scope.h"
+#include "Configure.h"
 
 class GUI : public QMainWindow
 {
@@ -30,6 +31,8 @@ public:
 	int incrementation = 0;
 	//! Represents string to other incrementations
 	std::string path;
+	//! Table of reading for colors
+	int Colors[6];
 
 	QScriptEngine * engine = NULL;
 	QScriptProgram * program = NULL;
@@ -40,6 +43,8 @@ public:
 
 	class Generate * GenerateWindow = NULL;
 	class Scope * ScopeWindow = NULL;
+	class Configure * ConfigureWindow = NULL;
+
 private slots:
 	//! Function allowing simulation to start in other thread
 	void StartSimulation();
@@ -73,6 +78,10 @@ private slots:
 	void PrevInc();
 	//! Function calling load for next table
 	void NextInc();
+	//! Funtions starting config class
+	void BeginConfig();
+	//! Function ending config
+	void FinishConfig();
 
 private:
 	Ui::GUIClass ui;
